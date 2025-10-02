@@ -1,0 +1,23 @@
+baseURL = "https://nhittt29.github.io/MyTechTales/"
+languageCode = "vi"
+title = "MyTechTales"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 5
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Profile"
+    url = "/profile/"
+    weight = 3
