@@ -4,11 +4,6 @@ date: 2025-10-02T09:00:00+07:00
 draft: false
 tags: ["Java", "Networking"]
 categories: ["Java"]
-# Không cần cover nếu dùng ảnh trong nội dung
-# cover:
-#   image: "/images/java-socket.png"
-#   alt: "Socket Java"
-#   caption: "Lập trình mạng bằng Socket trong Java"
 summary: "Giới thiệu lập trình mạng với Socket trong Java: xây dựng server - client TCP, gửi nhận dữ liệu và demo ví dụ đơn giản."
 ---
 

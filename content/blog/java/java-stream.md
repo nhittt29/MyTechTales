@@ -4,11 +4,6 @@ date: 2025-10-05T09:00:00+07:00
 draft: false
 tags: ["Java", "Streams"]
 categories: ["Java"]
-# Không cần cover nếu dùng ảnh trong nội dung
-# cover:
-#   image: "/images/java-stream.png"
-#   alt: "Java Streams"
-#   caption: "Xử lý dữ liệu với Stream API"
 summary: "Giới thiệu Java Stream API: map, filter, reduce, lazy evaluation và cách tối ưu thao tác với Collection."
 ---
 

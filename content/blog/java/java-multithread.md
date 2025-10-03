@@ -4,11 +4,6 @@ date: 2025-10-02T09:00:00+07:00
 draft: false
 tags: ["Java", "Concurrency"]
 categories: ["Java"]
-# Không cần cover nếu dùng ảnh trong nội dung
-# cover:
-#   image: "/images/java-thread.png"
-#   alt: "Java Thread"
-#   caption: "Lập trình đa luồng trong Java"
 summary: "Khái niệm Thread, cách sử dụng Runnable, ExecutorService và xử lý đồng bộ hóa bằng synchronized."
 ---
 

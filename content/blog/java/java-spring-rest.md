@@ -4,11 +4,6 @@ date: 2025-10-04T09:00:00+07:00
 draft: false
 tags: ["Java", "Spring", "REST"]
 categories: ["Java"]
-# Không cần cover nếu dùng ảnh trong nội dung
-# cover:
-#   image: "/images/java-spring-rest.png"
-#   alt: "Spring Boot REST"
-#   caption: "REST API với Spring Boot"
 summary: "Tạo ứng dụng Spring Boot đơn giản với REST API: Controller, GET/POST endpoint và demo JSON response."
 ---
 

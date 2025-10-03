@@ -4,11 +4,6 @@ date: 2025-10-03T09:00:00+07:00
 draft: false
 tags: ["Java", "JSON"]
 categories: ["Java"]
-# Không cần cover nếu dùng ảnh trong nội dung
-# cover:
-#   image: "/images/java-json.png"
-#   alt: "Jackson JSON"
-#   caption: "Làm việc với JSON trong Java"
 summary: "Sử dụng Jackson ObjectMapper để parse JSON thành Object, chuyển Object sang JSON và custom serialization."
 ---
 
