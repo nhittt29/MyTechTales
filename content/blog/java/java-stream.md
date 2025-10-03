@@ -1,6 +1,6 @@
 ---
 title: "Xử lý dữ liệu hiệu quả với Java Stream API"
-date: 2025-10-03T09:00:00+07:00
+date: 2025-10-02T09:00:00+07:00
 draft: false
 tags: ["Java", "Streams"]
 categories: ["Java"]

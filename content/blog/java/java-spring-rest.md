@@ -1,6 +1,6 @@
 ---
 title: "Xây dựng REST API cơ bản bằng Spring Boot"
-date: 2025-10-03T09:00:00+07:00
+date: 2025-10-02T09:00:00+07:00
 draft: false
 tags: ["Java", "Spring", "REST"]
 categories: ["Java"]
