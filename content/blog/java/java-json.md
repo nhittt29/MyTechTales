@@ -4,7 +4,7 @@ date: 2025-10-03T09:00:00+07:00
 draft: false
 tags: ["Java", "JSON"]
 categories: ["Java"]
-# Xóa phần cover để tránh hiển thị ảnh bìa mặc định
+# Không cần cover nếu dùng ảnh trong nội dung
 # cover:
 #   image: "/images/java-json.png"
 #   alt: "Jackson JSON"
