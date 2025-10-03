@@ -30,11 +30,12 @@ theme = "PaperMod"
   ShowToc = true
   layout = "cards"
   ShowPostsOnHome = false
-  ShowCover = true  # Thêm dòng này để bật hiển thị ảnh bìa
+  ShowCover = true
 
   [params.cover]
-    linkFullImages = true
-    relative = true
-    hidden = false
-    hiddenInList = false
-    hiddenInSingle = false
+  linkFullImages = true
+  relative = false
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+  responsiveImages = false
