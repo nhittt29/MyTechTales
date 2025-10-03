@@ -32,10 +32,10 @@ theme = "PaperMod"
   ShowPostsOnHome = false
   ShowCover = true
 
-  [params.cover]
-  linkFullImages = true
-  relative = false
-  hidden = false
-  hiddenInList = false
-  hiddenInSingle = false
-  responsiveImages = false
+[params.cover]
+linkFullImages = true
+relative = false
+hidden = false
+hiddenInList = false
+hiddenInSingle = false
+responsiveImages = false
