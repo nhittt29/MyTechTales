@@ -18,4 +18,4 @@ Tôi là Nhí, một sinh viên đam mê lập trình và đang học tập chuy
 
 MyTechTales sẽ cung cấp các bài viết chi tiết về lập trình Java và JavaScript, từ cơ bản đến nâng cao, kèm theo ví dụ thực tế. Hãy cùng tôi khám phá và học hỏi nhé!
 
-**[Xem các bài viết →](/posts/)**
+**[Xem các bài viết →]

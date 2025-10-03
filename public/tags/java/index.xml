@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>MyTechTales</title>
-    <link>https://nhittt29.github.io/MyTechTales/</link>
-    <description>Recent content on MyTechTales</description>
+    <title>Java on MyTechTales</title>
+    <link>https://nhittt29.github.io/MyTechTales/tags/java/</link>
+    <description>Recent content in Java on MyTechTales</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>vi</language>
     <lastBuildDate>Fri, 03 Oct 2025 09:00:00 +0700</lastBuildDate>
-    <atom:link href="https://nhittt29.github.io/MyTechTales/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nhittt29.github.io/MyTechTales/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Xử lý JSON trong Java với Jackson</title>
       <link>https://nhittt29.github.io/MyTechTales/blog/java/java-json/</link>

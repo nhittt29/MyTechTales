@@ -21,3 +21,20 @@ theme = "PaperMod"
     name = "Profile"
     url = "/profile/"
     weight = 3
+
+[params]
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  layout = "cards"
+  ShowPostsOnHome = false
+  ShowCover = true  # Thêm dòng này để bật hiển thị ảnh bìa
+
+  [params.cover]
+    linkFullImages = true
+    relative = true
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false

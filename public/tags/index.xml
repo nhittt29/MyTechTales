@@ -2,10 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on MyTechTales</title>
-    <link>http://localhost:1313/MyTechTales/tags/</link>
+    <link>https://nhittt29.github.io/MyTechTales/tags/</link>
     <description>Recent content in Tags on MyTechTales</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>vi</language>
-    <atom:link href="http://localhost:1313/MyTechTales/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Oct 2025 09:00:00 +0700</lastBuildDate>
+    <atom:link href="https://nhittt29.github.io/MyTechTales/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://nhittt29.github.io/MyTechTales/tags/java/</link>
+      <pubDate>Fri, 03 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://nhittt29.github.io/MyTechTales/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JSON</title>
+      <link>https://nhittt29.github.io/MyTechTales/tags/json/</link>
+      <pubDate>Fri, 03 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://nhittt29.github.io/MyTechTales/tags/json/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Concurrency</title>
+      <link>https://nhittt29.github.io/MyTechTales/tags/concurrency/</link>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://nhittt29.github.io/MyTechTales/tags/concurrency/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>https://nhittt29.github.io/MyTechTales/tags/networking/</link>
+      <pubDate>Thu, 02 Oct 2025 09:00:00 +0700</pubDate>
+      <guid>https://nhittt29.github.io/MyTechTales/tags/networking/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

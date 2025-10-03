@@ -2,14 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/MyTechTales/posts/</loc>
+    <loc>https://nhittt29.github.io/MyTechTales/blog/</loc>
+    <lastmod>2025-10-05T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/</loc>
+    <lastmod>2025-10-05T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/categories/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/categories/java/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/tags/java/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/tags/json/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/tags/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/blog/java/java-json/</loc>
+    <lastmod>2025-10-03T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/tags/concurrency/</loc>
+    <lastmod>2025-10-02T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/blog/java/</loc>
+    <lastmod>2025-10-02T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/blog/java/java-socket/</loc>
+    <lastmod>2025-10-02T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/blog/java/java-multithread/</loc>
+    <lastmod>2025-10-02T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/tags/networking/</loc>
+    <lastmod>2025-10-02T09:00:00+07:00</lastmod>
+  </url><url>
+    <loc>https://nhittt29.github.io/MyTechTales/profile/</loc>
     <lastmod>2025-10-01T15:03:00+07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/MyTechTales/</loc>
-    <lastmod>2025-10-01T15:03:00+07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/MyTechTales/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/MyTechTales/tags/</loc>
   </url>
 </urlset>
