@@ -18,7 +18,7 @@ summary: "Sử dụng Jackson ObjectMapper để parse JSON thành Object, chuy�
 
 JSON là định dạng phổ biến để trao đổi dữ liệu. Trong Java, thư viện **Jackson** hỗ trợ mạnh mẽ việc đọc/ghi JSON.
 
-![Jackson JSON](/images/java-json.png "Làm việc với JSON trong Java")
+![Jackson JSON](https://nhittt29.github.io/MyTechTales/images/java-json.png "Làm việc với JSON trong Java")
 
 ## 2. Parse JSON thành Object
 
