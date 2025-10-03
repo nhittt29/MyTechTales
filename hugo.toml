@@ -33,9 +33,9 @@ theme = "PaperMod"
   ShowCover = true
 
 [params.cover]
-linkFullImages = true
-relative = false
-hidden = false
-hiddenInList = false
-hiddenInSingle = false
-responsiveImages = false
+  linkFullImages = true
+  relative = false  # Đảm bảo dùng đường dẫn tuyệt đối
+  hidden = false
+  hiddenInList = false
+  hiddenInSingle = false
+  responsiveImages = false  # Tắt tạm thời để test
