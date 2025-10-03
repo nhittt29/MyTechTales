@@ -2,12 +2,13 @@
 title: "Multithreading và đồng bộ trong Java"
 date: 2025-10-02T09:00:00+07:00
 draft: false
-tags: ["Java","Concurrency"]
+tags: ["Java", "Concurrency"]
 categories: ["Java"]
-cover:
-  image: "/images/java-thread.png"
-  alt: "Java Thread"
-  caption: "Lập trình đa luồng trong Java"
+# Không cần cover nếu dùng ảnh trong nội dung
+# cover:
+#   image: "/images/java-thread.png"
+#   alt: "Java Thread"
+#   caption: "Lập trình đa luồng trong Java"
 summary: "Khái niệm Thread, cách sử dụng Runnable, ExecutorService và xử lý đồng bộ hóa bằng synchronized."
 ---
 
@@ -16,6 +17,8 @@ summary: "Khái niệm Thread, cách sử dụng Runnable, ExecutorService và x
 ## 1. Giới thiệu
 
 Multithreading cho phép chương trình chạy nhiều tác vụ đồng thời → tận dụng CPU đa nhân, tăng hiệu suất.
+
+![Java Thread](https://nhittt29.github.io/MyTechTales/images/java-thread.png "Lập trình đa luồng trong Java")
 
 ## 2. Tạo thread trong Java
 

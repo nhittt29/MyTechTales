@@ -2,12 +2,13 @@
 title: "Xử lý dữ liệu hiệu quả với Java Stream API"
 date: 2025-10-05T09:00:00+07:00
 draft: false
-tags: ["Java","Streams"]
+tags: ["Java", "Streams"]
 categories: ["Java"]
-cover:
-  image: "/images/java-stream.png"
-  alt: "Java Streams"
-  caption: "Xử lý dữ liệu với Stream API"
+# Không cần cover nếu dùng ảnh trong nội dung
+# cover:
+#   image: "/images/java-stream.png"
+#   alt: "Java Streams"
+#   caption: "Xử lý dữ liệu với Stream API"
 summary: "Giới thiệu Java Stream API: map, filter, reduce, lazy evaluation và cách tối ưu thao tác với Collection."
 ---
 
@@ -16,6 +17,8 @@ summary: "Giới thiệu Java Stream API: map, filter, reduce, lazy evaluation v
 ## 1. Giới thiệu
 
 Stream API cho phép viết code xử lý tập hợp ngắn gọn, dễ đọc hơn.
+
+![Java Streams](https://nhittt29.github.io/MyTechTales/images/java-stream.png "Xử lý dữ liệu với Stream API")
 
 ## 2. Ví dụ: map + filter
 

@@ -2,12 +2,13 @@
 title: "Lập trình Socket cơ bản trong Java"
 date: 2025-10-02T09:00:00+07:00
 draft: false
-tags: ["Java","Networking"]
+tags: ["Java", "Networking"]
 categories: ["Java"]
-cover:
-  image: "/images/java-socket.png"
-  alt: "Socket Java"
-  caption: "Lập trình mạng bằng Socket trong Java"
+# Không cần cover nếu dùng ảnh trong nội dung
+# cover:
+#   image: "/images/java-socket.png"
+#   alt: "Socket Java"
+#   caption: "Lập trình mạng bằng Socket trong Java"
 summary: "Giới thiệu lập trình mạng với Socket trong Java: xây dựng server - client TCP, gửi nhận dữ liệu và demo ví dụ đơn giản."
 ---
 
@@ -19,6 +20,8 @@ Trong Java, lập trình socket thường dùng các lớp:
 
 - `ServerSocket` (dành cho server, lắng nghe cổng).
 - `Socket` (dành cho client, kết nối tới server).
+
+![Socket Java](https://nhittt29.github.io/MyTechTales/images/java-socket.png "Lập trình mạng bằng Socket trong Java")
 
 ## 2. Ví dụ: Server TCP
 

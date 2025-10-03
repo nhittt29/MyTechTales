@@ -2,12 +2,13 @@
 title: "Xây dựng REST API cơ bản bằng Spring Boot"
 date: 2025-10-04T09:00:00+07:00
 draft: false
-tags: ["Java","Spring","REST"]
+tags: ["Java", "Spring", "REST"]
 categories: ["Java"]
-cover:
-  image: "/images/java-spring-rest.png"
-  alt: "Spring Boot REST"
-  caption: "REST API với Spring Boot"
+# Không cần cover nếu dùng ảnh trong nội dung
+# cover:
+#   image: "/images/java-spring-rest.png"
+#   alt: "Spring Boot REST"
+#   caption: "REST API với Spring Boot"
 summary: "Tạo ứng dụng Spring Boot đơn giản với REST API: Controller, GET/POST endpoint và demo JSON response."
 ---
 
@@ -16,6 +17,8 @@ summary: "Tạo ứng dụng Spring Boot đơn giản với REST API: Controller
 ## 1. Giới thiệu
 
 Spring Boot là framework mạnh mẽ để phát triển ứng dụng web, REST API một cách nhanh chóng.
+
+![Spring Boot REST](https://nhittt29.github.io/MyTechTales/images/java-spring-rest.png "REST API với Spring Boot")
 
 ## 2. Tạo REST Controller
 
