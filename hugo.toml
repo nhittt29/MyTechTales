@@ -30,8 +30,8 @@ theme = "PaperMod"
   ShowToc = true
   layout = "cards"
   ShowPostsOnHome = false
-  ShowCover = true
-  customCSS = ["/css/custom.css"]  # Thêm dòng này
+  ShowCover = false  # Tắt hiển thị ảnh bìa
+  customCSS = ["/css/custom.css"]  # Nếu đã thêm
 
 [params.cover]
   linkFullImages = true
