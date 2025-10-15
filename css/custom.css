@@ -1,16 +1,17 @@
+/* Ẩn hoàn toàn ảnh bìa */
+.entry-cover {
+  display: none !important;
+}
+
+/* Ẩn ảnh bìa trong layout cards */
+.summary .entry-cover {
+  display: none !important;
+}
+
 /* Đảm bảo ảnh trong nội dung hiển thị */
 .content img {
   display: block !important;
   max-width: 100% !important;
   height: auto !important;
-  margin: 10px 0; /* Khoảng cách trên dưới */
-}
-
-/* Đảm bảo ảnh bìa trong danh sách bài viết hiển thị */
-.summary .entry-cover img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-height: 200px;
-  object-fit: cover;
+  margin: 10px 0;
 }
