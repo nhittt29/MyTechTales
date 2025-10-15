@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Xử lý dữ liệu mạng bằng Java NIO | My Tech Tales</title>
-<meta name="keywords" content="Java, NIO, Mạng">
-<meta name="description" content="Khám phá Java NIO (Non-blocking I/O) để xử lý dữ liệu mạng hiệu quả trong các ứng dụng lớn.">
+<title>JavaScript và xử lý dữ liệu thời gian thực | My Tech Tales</title>
+<meta name="keywords" content="JavaScript, WebSocket, Mạng">
+<meta name="description" content="Sử dụng WebSocket với JavaScript để cập nhật dữ liệu mạng theo thời gian thực.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/MyTechTales/blog/java/java-nio/">
+<link rel="canonical" href="http://localhost:1313/MyTechTales/blog/javascript/websocket/">
 <link crossorigin="anonymous" href="/MyTechTales/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/MyTechTales/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/MyTechTales/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="http://localhost:1313/MyTechTales/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/MyTechTales/blog/java/java-nio/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/MyTechTales/blog/javascript/websocket/">
 <noscript>
     <style>
         #theme-toggle,
@@ -120,11 +120,11 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/MyTechTales/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/">Blogs</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/java/">Lập trình Java</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/MyTechTales/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/">Blogs</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/javascript/">Lập trình JavaScript</a></div>
     <h1 class="post-title entry-hint-parent">
-      Xử lý dữ liệu mạng bằng Java NIO
+      JavaScript và xử lý dữ liệu thời gian thực
     </h1>
-    <div class="post-meta"><span title='2025-10-02 00:00:00 +0000 UTC'>October 2, 2025</span>&nbsp;·&nbsp;<span>1 min</span>
+    <div class="post-meta"><span title='2025-10-04 00:00:00 +0000 UTC'>October 4, 2025</span>&nbsp;·&nbsp;<span>1 min</span>
 
 </div>
   </header> <div class="toc">
@@ -137,9 +137,9 @@
                 <li>
                     <a href="#1-gi%e1%bb%9bi-thi%e1%bb%87u" aria-label="1. Giới thiệu">1. Giới thiệu</a></li>
                 <li>
-                    <a href="#2-vai-tr%c3%b2-c%e1%bb%a7a-nio-trong-l%e1%ba%adp-tr%c3%acnh-m%e1%ba%a1ng" aria-label="2. Vai trò của NIO trong lập trình mạng">2. Vai trò của NIO trong lập trình mạng</a></li>
+                    <a href="#2-vai-tr%c3%b2-trong-l%e1%ba%adp-tr%c3%acnh-m%e1%ba%a1ng" aria-label="2. Vai trò trong lập trình mạng">2. Vai trò trong lập trình mạng</a></li>
                 <li>
-                    <a href="#3-nio-l%c3%a0-g%c3%ac" aria-label="3. NIO là gì?">3. NIO là gì?</a></li>
+                    <a href="#3-websocket-l%c3%a0-g%c3%ac" aria-label="3. WebSocket là gì?">3. WebSocket là gì?</a></li>
                 <li>
                     <a href="#4-%e1%bb%a9ng-d%e1%bb%a5ng-trong-th%e1%bb%b1c-t%e1%ba%bf" aria-label="4. Ứng dụng trong thực tế">4. Ứng dụng trong thực tế</a></li>
                 <li>
@@ -151,58 +151,45 @@
 </div>
 
   <div class="post-content"><h2 id="1-giới-thiệu">1. Giới thiệu<a hidden class="anchor" aria-hidden="true" href="#1-giới-thiệu">#</a></h2>
-<p><strong>Java NIO</strong> (New I/O) là một cách tiếp cận hiện đại để xử lý dữ liệu mạng, vượt trội hơn so với I/O truyền thống.<br>
-Nó cho phép xử lý không chặn (non-blocking), rất phù hợp cho các ứng dụng mạng quy mô lớn.</p>
-<p><img alt="Java NIO" loading="lazy" src="https://nhittt29.github.io/MyTechTales/images/java-nio.png" title="So sánh Blocking và Non-blocking"></p>
-<h2 id="2-vai-trò-của-nio-trong-lập-trình-mạng">2. Vai trò của NIO trong lập trình mạng<a hidden class="anchor" aria-hidden="true" href="#2-vai-trò-của-nio-trong-lập-trình-mạng">#</a></h2>
-<p>NIO giúp tối ưu hóa hiệu suất khi xử lý nhiều kết nối đồng thời.<br>
-Nó là lựa chọn lý tưởng cho các server cần phản hồi nhanh với hàng nghìn client.</p>
-<h2 id="3-nio-là-gì">3. NIO là gì?<a hidden class="anchor" aria-hidden="true" href="#3-nio-là-gì">#</a></h2>
-<p><strong>NIO</strong> sử dụng kênh (Channel) và bộ đệm (Buffer) để quản lý dữ liệu.<br>
-Khác với Socket truyền thống, NIO không chặn quá trình khi chờ dữ liệu, tăng hiệu suất.</p>
+<p><strong>WebSocket</strong> là công nghệ cho phép giao tiếp hai chiều giữa client và server qua mạng.<br>
+JavaScript tận dụng WebSocket để xây dựng các ứng dụng thời gian thực như chat hoặc bảng điều khiển.</p>
+<p><img alt="WebSocket" loading="lazy" src="https://nhittt29.github.io/MyTechTales/images/websocket.jpg" title="Mô phỏng chat thời gian thực"></p>
+<h2 id="2-vai-trò-trong-lập-trình-mạng">2. Vai trò trong lập trình mạng<a hidden class="anchor" aria-hidden="true" href="#2-vai-trò-trong-lập-trình-mạng">#</a></h2>
+<p>Dữ liệu thời gian thực là xu hướng trong các ứng dụng hiện đại.<br>
+WebSocket vượt trội hơn HTTP thông thường nhờ kết nối liên tục.</p>
+<h2 id="3-websocket-là-gì">3. WebSocket là gì?<a hidden class="anchor" aria-hidden="true" href="#3-websocket-là-gì">#</a></h2>
+<p><strong>WebSocket</strong> duy trì kết nối cố định, cho phép gửi/nhận dữ liệu ngay lập tức.<br>
+Nó giảm độ trễ so với các phương pháp polling truyền thống.</p>
 <h2 id="4-ứng-dụng-trong-thực-tế">4. Ứng dụng trong thực tế<a hidden class="anchor" aria-hidden="true" href="#4-ứng-dụng-trong-thực-tế">#</a></h2>
 <ul>
-<li>Server game online xử lý nhiều người chơi cùng lúc.</li>
-<li>Dịch vụ streaming dữ liệu mạng.</li>
-<li>Hệ thống giám sát lưu lượng mạng thời gian thực.</li>
+<li>Ứng dụng chat trực tuyến.</li>
+<li>Cập nhật giá cổ phiếu thời gian thực.</li>
+<li>Giám sát trạng thái mạng.</li>
 </ul>
 <h2 id="5-ví-dụ-minh-họa">5. Ví dụ minh họa<a hidden class="anchor" aria-hidden="true" href="#5-ví-dụ-minh-họa">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.*;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.nio.channels.*;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">socket</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">WebSocket</span>(<span style="color:#e6db74">&#34;ws://localhost:8080&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">socket</span>.<span style="color:#a6e22e">onmessage</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Dữ liệu: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>};
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NIOServer</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {
-</span></span><span style="display:flex;"><span>        ServerSocketChannel server <span style="color:#f92672">=</span> ServerSocketChannel.<span style="color:#a6e22e">open</span>();
-</span></span><span style="display:flex;"><span>        server.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">new</span> InetSocketAddress(1234));
-</span></span><span style="display:flex;"><span>        server.<span style="color:#a6e22e">configureBlocking</span>(<span style="color:#66d9ef">false</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
-</span></span><span style="display:flex;"><span>            SocketChannel client <span style="color:#f92672">=</span> server.<span style="color:#a6e22e">accept</span>();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (client <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
-</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Kết nối mới từ: &#34;</span> <span style="color:#f92672">+</span> client);
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">socket</span>.<span style="color:#a6e22e">onopen</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">socket</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Kết nối từ Client!&#34;</span>);
+</span></span><span style="display:flex;"><span>};
 </span></span></code></pre></div>
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/MyTechTales/tags/java/">Java</a></li>
-      <li><a href="http://localhost:1313/MyTechTales/tags/nio/">NIO</a></li>
+      <li><a href="http://localhost:1313/MyTechTales/tags/javascript/">JavaScript</a></li>
+      <li><a href="http://localhost:1313/MyTechTales/tags/websocket/">WebSocket</a></li>
       <li><a href="http://localhost:1313/MyTechTales/tags/m%E1%BA%A1ng/">Mạng</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/MyTechTales/blog/java/java-spring-rest/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>Tạo API đơn giản với Java Spring Boot</span>
-  </a>
-  <a class="next" href="http://localhost:1313/MyTechTales/blog/java/java-socket/">
+  <a class="next" href="http://localhost:1313/MyTechTales/blog/java/java-spring-rest/">
     <span class="title">Next »</span>
     <br>
-    <span>Giới thiệu lập trình mạng với Java</span>
+    <span>Tạo API đơn giản với Java Spring Boot</span>
   </a>
 </nav>
 
