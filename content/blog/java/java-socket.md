@@ -1,41 +1,47 @@
 ---
-title: "Lập trình Socket cơ bản trong Java"
-date: 2025-10-02T09:00:00+07:00
-draft: false
-tags: ["Java", "Networking"]
-categories: ["Java"]
-summary: "Giới thiệu lập trình mạng với Socket trong Java: xây dựng server - client TCP, gửi nhận dữ liệu và demo ví dụ đơn giản."
+title: "Giới thiệu lập trình mạng với Java"
+date: 2025-10-01
+tags: ["Java", "Mạng"]
+categories: ["Lập trình Java"]
+summary: "Hướng dẫn cơ bản về lập trình mạng với Java thông qua Socket, mở đầu cho việc phát triển ứng dụng mạng."
 ---
 
-## 1. Socket là gì?
+## 1. Giới thiệu
 
-Socket là điểm cuối của kết nối hai chiều, cho phép hai ứng dụng giao tiếp qua mạng.
+Lập trình mạng giúp kết nối các thiết bị qua Internet hoặc mạng nội bộ.  
+Java cung cấp **Socket** để xây dựng ứng dụng Client-Server đơn giản.
 
-Trong Java, lập trình socket thường dùng các lớp:
+![Socket Java](https://nhittt29.github.io/MyTechTales/images/socket-java.png "Cấu trúc Client-Server với Socket")
 
-- `ServerSocket` (dành cho server, lắng nghe cổng).
-- `Socket` (dành cho client, kết nối tới server).
+## 2. Vai trò của mạng trong lập trình
 
-![Socket Java](https://nhittt29.github.io/MyTechTales/images/java-socket.png "Lập trình mạng bằng Socket trong Java")
+Mạng là nền tảng cho các ứng dụng như chat, game online, hoặc REST API.  
+Java hỗ trợ tốt nhờ thư viện mạng tích hợp sẵn.
 
-## 2. Ví dụ: Server TCP
+## 3. Socket là gì?
+
+**Socket** là giao thức kết nối hai chiều giữa Client và Server.  
+Nó cho phép gửi/nhận dữ liệu qua mạng hiệu quả.
+
+## 4. Ứng dụng trong thực tế
+
+- Chat đơn giản giữa hai máy.  
+- Kết nối với server từ xa.  
+- Xây dựng nền tảng mạng cơ bản.
+
+## 5. Ví dụ minh họa
 
 ```java
-import java.io.*;
 import java.net.*;
+import java.io.*;
 
-public class TCPServer {
-  public static void main(String[] args) throws IOException {
-    ServerSocket server = new ServerSocket(12345);
-    System.out.println("Server đang lắng nghe...");
-    Socket client = server.accept();
-
-    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-    PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-
-    String line = in.readLine();
-    System.out.println("Nhận từ client: " + line);
-    out.println("Chào client, tôi là server!");
-    server.close();
-  }
+public class Server {
+    public static void main(String[] args) throws IOException {
+        ServerSocket server = new ServerSocket(1234);
+        Socket client = server.accept();
+        PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+        out.println("Chào mừng đến Server!");
+        client.close();
+        server.close();
+    }
 }

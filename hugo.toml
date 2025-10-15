@@ -1,6 +1,6 @@
 baseURL = "https://nhittt29.github.io/MyTechTales/"
 languageCode = "vi"
-title = "MyTechTales"
+title = "My Tech Tales"
 theme = "PaperMod"
 
 [pagination]
