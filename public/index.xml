@@ -6,8 +6,15 @@
     <description>Recent content on My Tech Tales</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>vi</language>
-    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/MyTechTales/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript và xử lý dữ liệu thời gian thực</title>
+      <link>http://localhost:1313/MyTechTales/blog/java/websocket/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/MyTechTales/blog/java/websocket/</guid>
+      <description>Sử dụng WebSocket với JavaScript để cập nhật dữ liệu mạng theo thời gian thực.</description>
+    </item>
     <item>
       <title>Tạo API đơn giản với Java Spring Boot</title>
       <link>http://localhost:1313/MyTechTales/blog/java/java-spring-rest/</link>

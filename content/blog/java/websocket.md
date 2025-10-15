@@ -11,7 +11,7 @@ summary: "Sử dụng WebSocket với JavaScript để cập nhật dữ liệu 
 **WebSocket** là công nghệ cho phép giao tiếp hai chiều giữa client và server qua mạng.  
 JavaScript tận dụng WebSocket để xây dựng các ứng dụng thời gian thực như chat hoặc bảng điều khiển.
 
-![WebSocket](https://example.com/websocket.jpg "Mô phỏng chat thời gian thực")
+![WebSocket](https://nhittt29.github.io/MyTechTales/images/websocket.jpg "Mô phỏng chat thời gian thực")
 
 ## 2. Vai trò trong lập trình mạng
 
