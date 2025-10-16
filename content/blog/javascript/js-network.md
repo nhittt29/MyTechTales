@@ -1,6 +1,6 @@
 ---
 title: "JavaScript và lập trình mạng cơ bản"
-date: 2025-10-16
+date: 2025-10-07
 tags: ["JavaScript", "Mạng", "Fetch API"]
 categories: ["Lập trình JavaScript"]
 summary: "Khám phá cách JavaScript thực hiện các yêu cầu mạng cơ bản với Fetch API và XMLHttpRequest, cập nhật ngày 17/10/2025."
