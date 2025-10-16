@@ -1,28 +1,31 @@
 {{ define "main" }}
-  <main class="max-w-4xl mx-auto px-4 py-12 text-center bg-white shadow-lg rounded-lg">
-    <!-- Header với hình ảnh nền -->
-    <div class="relative mb-8">
-      <img src="https://nhittt29.github.io/MyTechTales/images/network-pic.jpg" alt=" Network Programming Illustration" class="w-full h-64 object-cover rounded-t-lg" loading="lazy">
-      <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-        <h1 class="text-5xl font-extrabold text-white drop-shadow-lg">Xin chào 👋</h1>
+  <main class="max-w-5xl mx-auto px-6 py-8 bg-gradient-to-b from-gray-50 to-white">
+    <!-- Header với hình ảnh và overlay -->
+    <div class="relative overflow-hidden rounded-xl shadow-md">
+      <img src="https://nhittt29.github.io/MyTechTales/images/network-pic.jpg" alt="Network Programming Illustration" class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end pb-6">
+        <h1 class="text-4xl font-bold text-white drop-shadow-md mx-auto">Xin chào 👋</h1>
       </div>
     </div>
 
     <!-- Nội dung chính -->
-    <div class="px-6">
-      <p class="text-xl text-gray-700 leading-relaxed">
-        Chào mừng bạn đến với <b class="text-blue-600">MyTechTales</b> 🎉<br>
-        Đây là nơi mình chia sẻ hành trình khám phá <b class="text-green-600">Java</b>, <b class="text-yellow-600">JavaScript</b>, và những công nghệ thú vị khác liên quan đến lập trình mạng và hơn thế nữa!
+    <div class="mt-8 text-left md:text-center px-4 md:px-0">
+      <p class="text-lg text-gray-800 font-medium">
+        Chào mừng bạn đến với <span class="text-blue-500 font-semibold">MyTechTales</span> 🎉
+      </p>
+      <p class="mt-2 text-base text-gray-600 leading-relaxed">
+        Đây là nơi mình chia sẻ hành trình khám phá <span class="text-green-500">Java</span>, <span class="text-yellow-500">JavaScript</span>, và các công nghệ lập trình mạng thú vị khác!
+      </p>
+      <p class="mt-4 text-sm text-gray-500">
+        Cùng mình khám phá thế giới code từ API đến ứng dụng thời gian thực. Hãy đọc bài viết và chia sẻ ý kiến nhé! 🚀
       </p>
 
-      <!-- Thêm mô tả ngắn gọn và lời kêu gọi -->
-      <p class="mt-4 text-lg text-gray-600">
-        Hãy cùng mình lặn sâu vào thế giới code, từ xây dựng API đến ứng dụng thời gian thực. Đừng quên khám phá các bài viết và để lại ý kiến nhé! 🚀
-      </p>
-
-      <!-- Nút kêu gọi hành động (CTA) -->
-      <a href="/blog" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
-        Khám phá bài viết ngay
+      <!-- Nút CTA hiện đại -->
+      <a href="/blog" class="mt-6 inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        <span>Khám phá ngay</span>
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
       </a>
     </div>
   </main>
