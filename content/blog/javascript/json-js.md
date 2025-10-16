@@ -12,7 +12,7 @@ summary: "Hướng dẫn xử lý dữ liệu JSON trong JavaScript khi giao ti�
 Việc xử lý JSON hiệu quả giúp đảm bảo dữ liệu chính xác và ứng dụng hoạt động mượt mà.  
 Bài viết này, được cập nhật dựa trên thông tin từ sáng thứ Năm, ngày 16/10/2025 lúc 09:56 AM +07, sẽ hướng dẫn chi tiết cách làm việc với JSON trong lập trình mạng JavaScript.
 
-![JSON JavaScript](https://nhittt29.github.io/MyTechTales/images/json-js.png "Xử lý JSON trong JavaScript")
+![JSON JavaScript](https://nhittt29.github.io/MyTechTales/images/json-js.jpg "Xử lý JSON trong JavaScript")
 
 ## 2. Vai trò của JSON trong lập trình mạng
 
