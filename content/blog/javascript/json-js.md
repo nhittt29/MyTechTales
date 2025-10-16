@@ -1,6 +1,6 @@
 ---
 title: "Xử lý dữ liệu JSON với JavaScript trong mạng"
-date: 2025-10-19
+date: 2025-10-16
 tags: ["JavaScript", "JSON", "API"]
 categories: ["Lập trình JavaScript"]
 summary: "Hướng dẫn xử lý dữ liệu JSON trong JavaScript khi giao tiếp với API mạng, cập nhật ngày 19/10/2025."

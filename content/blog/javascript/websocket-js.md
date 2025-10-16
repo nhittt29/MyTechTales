@@ -1,6 +1,6 @@
 ---
 title: "WebSocket với JavaScript cho thời gian thực"
-date: 2025-10-18
+date: 2025-10-16
 tags: ["JavaScript", "WebSocket", "Thời gian thực"]
 categories: ["Lập trình JavaScript"]
 summary: "Hướng dẫn sử dụng WebSocket trong JavaScript để xây dựng ứng dụng thời gian thực như chat và thông báo, cập nhật ngày 18/10/2025."
