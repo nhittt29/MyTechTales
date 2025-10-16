@@ -1,99 +1,107 @@
 {{ define "main" }}
-<style>
-  /* =============================
-     CUSTOM HERO SECTION STYLES
-     ============================= */
-
-  .hero-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #eef4fb 0%, #f7fafd 100%);
-    padding: 2rem;
-  }
-
-  .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1100px;
-    gap: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .hero-image img {
-    width: 340px;
-    height: auto;
-    animation: float 4s ease-in-out infinite;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-
-  .hero-text {
-    max-width: 520px;
-    color: #222;
-    line-height: 1.6;
-    animation: fadeIn 1.6s ease;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-    color: #0b3d91;
-    margin-bottom: 1rem;
-  }
-
-  .hero-text .highlight {
-    color: #0077cc;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 768px) {
-    .hero-container {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .hero-image img {
-      width: 260px;
-    }
-
-    .hero-text h1 {
-      font-size: 1.6rem;
-    }
-  }
-</style>
-
-<section class="hero-section">
-  <div class="hero-container">
-    <!-- Ảnh bên trái -->
-    <div class="hero-image">
-      <img src="https://nhittt29.github.io/MyTechTales/images/data-analytics-hero.jpg" alt="data-analytics-hero" />
-    </div>
-
-    <!-- Nội dung bên phải -->
-    <div class="hero-text">
-      <h1><span class="highlight">Biến Dữ Liệu</span> thành Giải Pháp Chiến Lược</h1>
-      <p>
-        Xin chào! Mình là <strong>Nhị</strong> — một người làm 
-        <strong>Business Analyst & Data Analyst</strong>. 
-        Mình đam mê việc khai thác dữ liệu, hiểu người dùng và giúp doanh nghiệp đưa ra quyết định chính xác dựa trên dữ liệu thực tế.
-      </p>
-      <p>
-        Trên blog <strong>My Tech Tales</strong>, mình chia sẻ góc nhìn, kinh nghiệm và hướng dẫn về 
-        <em>phân tích dữ liệu</em>, <em>BI</em>, <em>dashboard</em>, 
-        <em>storytelling</em> và tư duy chiến lược trong doanh nghiệp hiện đại.
-      </p>
+<div class="homepage">
+  <div class="intro-container">
+    <div class="intro-content">
+      <div class="intro-image">
+        <img 
+          src="https://nhittt29.github.io/MyTechTales/images/data-analytics.jpg" 
+          alt="data-analytics" 
+        />
+      </div>
+      <div class="intro-text">
+        <h1>
+          <span class="highlight">Biến Dữ Liệu</span> thành Giải Pháp Chiến Lược
+        </h1>
+        <p>
+          Xin chào! Mình là <strong>Nhị</strong> — một người làm 
+          <strong>Business Analyst & Data Analyst</strong>. 
+          Mình đam mê việc khai thác dữ liệu, hiểu người dùng 
+          và giúp doanh nghiệp đưa ra quyết định chính xác dựa trên dữ liệu thực tế.
+        </p>
+        <p>
+          Trên blog <strong>My Tech Tales</strong>, mình chia sẻ góc nhìn, kinh nghiệm và hướng dẫn về 
+          <em>phân tích dữ liệu, BI, dashboard, storytelling</em> 
+          và tư duy chiến lược trong doanh nghiệp hiện đại.
+        </p>
+      </div>
     </div>
   </div>
-</section>
+</div>
+
+<style>
+.homepage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f7f9fb;
+}
+
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.intro-image img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s ease;
+}
+
+.intro-image img:hover {
+  transform: scale(1.05);
+}
+
+.intro-text {
+  max-width: 550px;
+}
+
+.intro-text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.intro-text .highlight {
+  color: #0077cc;
+}
+
+.intro-text p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+
+  .intro-text h1 {
+    font-size: 1.6rem;
+  }
+}
+</style>
 {{ end }}
