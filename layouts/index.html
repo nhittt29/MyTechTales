@@ -1,46 +1,41 @@
 {{ define "main" }}
-<main class="max-w-4xl mx-auto px-6 py-12 leading-relaxed text-gray-800 relative">
+<!-- Hero Section -->
+<section class="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-white via-gray-50 to-blue-50 px-8 overflow-hidden">
 
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-100 -z-10"></div>
-
-  <!-- Giới thiệu -->
-  <section class="mb-12 text-center">
-    <h2 class="text-3xl font-bold text-gray-900 border-b border-gray-300 inline-block pb-2 mb-6">
-      Giới thiệu
-    </h2>
-    <p class="text-gray-700 max-w-2xl mx-auto">
-      <strong>MyTechTales</strong> là nơi mình chia sẻ những kiến thức, kinh nghiệm và hướng dẫn lập trình 
-      xoay quanh Java, JavaScript và công nghệ mạng.  
-      Đây là không gian mình lưu giữ lại hành trình học tập, thử nghiệm và sáng tạo trong thế giới phần mềm.
-    </p>
-  </section>
-
-  <!-- Hình minh họa trung tâm -->
-  <div class="flex justify-center my-10">
-    <img 
-      src="https://nhittt29.github.io/MyTechTales/images/network-pic.jpg" 
-      alt="Network Illustration"
-      class="rounded-xl shadow-md w-full md:w-1/2 lg:w-2/5 object-cover opacity-95 hover:opacity-100 transition duration-300 ease-in-out transform hover:scale-105">
+  <!-- Background shape mờ -->
+  <div class="absolute inset-0 overflow-hidden -z-10">
+    <div class="absolute w-[600px] h-[600px] bg-blue-200/40 rounded-full blur-3xl top-[-200px] left-[-150px] animate-pulse"></div>
+    <div class="absolute w-[500px] h-[500px] bg-teal-200/40 rounded-full blur-3xl bottom-[-150px] right-[-100px] animate-pulse delay-700"></div>
   </div>
 
-  <!-- Các chủ đề chính -->
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold text-gray-900 border-b border-gray-300 pb-1 mb-4 text-center">Các chủ đề chính</h2>
-    <ul class="list-disc list-inside space-y-2 text-gray-700 max-w-2xl mx-auto">
-      <li><strong>Lập trình Java</strong> – từ căn bản đến ứng dụng mạng nâng cao.</li>
-      <li><strong>JavaScript & Node.js</strong> – xây dựng ứng dụng web linh hoạt, hiện đại.</li>
-      <li><strong>Lập trình mạng</strong> – API, socket, giao thức HTTP và RESTful services.</li>
-      <li><strong>Kinh nghiệm nghề nghiệp</strong> – câu chuyện, góc nhìn và định hướng IT.</li>
-    </ul>
-  </section>
+  <!-- Phần text -->
+  <div class="flex-1 max-w-xl z-10 text-center md:text-left space-y-6">
+    <span class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium tracking-wide">
+      💼 Business & Data Insights
+    </span>
 
-  <!-- Lời mời gọi -->
-  <section class="text-center mt-16">
-    <p class="text-lg text-gray-700 mb-6">
-      Cùng mình học hỏi, thử nghiệm và kể những câu chuyện công nghệ thú vị 💡  
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+      Khai phá <span class="text-blue-600">dữ liệu</span> và chuyển hoá <span class="text-teal-500">giải pháp</span> kinh doanh
+    </h1>
+
+    <p class="text-gray-600 text-lg leading-relaxed">
+      Xin chào! Mình là <strong>Nhị</strong> — một người làm phân tích dữ liệu và nghiệp vụ (BA/DA).  
+      Mình đam mê việc kết nối giữa **công nghệ, con người và dữ liệu** để tạo ra các **quyết định thông minh và chiến lược hiệu quả**.
     </p>
-  </section>
 
-</main>
+    <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
+      <a href="/blog" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition-all duration-300 shadow-md">Khám phá bài viết</a>
+      <a href="/about" class="px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold rounded-full transition-all duration-300">Về tôi</a>
+    </div>
+  </div>
+
+  <!-- Ảnh minh hoạ -->
+  <div class="flex-1 flex justify-center md:justify-end mt-10 md:mt-0 z-10">
+    <img src="https://nhittt29.github.io/MyTechTales/images/data-analytics-hero.png" 
+         alt="Data analytics illustration"
+         class="w-4/5 md:w-3/5 lg:w-1/2 drop-shadow-2xl hover:scale-105 transition-transform duration-500 ease-out rounded-xl">
+  </div>
+
+</section>
+
 {{ end }}
