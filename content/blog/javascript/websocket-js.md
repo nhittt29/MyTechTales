@@ -12,7 +12,7 @@ summary: "Hướng dẫn sử dụng WebSocket trong JavaScript để xây dựn
 JavaScript cung cấp WebSocket API native để kết nối với server (như Java backend), tạo ra trải nghiệm người dùng mượt mà.  
 Bài viết này, được cập nhật dựa trên thông tin từ sáng thứ Năm, ngày 16/10/2025 lúc 10:07 AM +07, sẽ hướng dẫn chi tiết cách triển khai WebSocket trong JavaScript.
 
-![WebSocket](https://example.com/websocket-js.png "WebSocket trong JavaScript")
+![WebSocket](https://nhittt29.github.io/MyTechTales/images/websocket-js.png "WebSocket trong JavaScript")
 
 ## 2. Vai trò của WebSocket trong ứng dụng web
 

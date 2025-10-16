@@ -12,7 +12,7 @@ JavaScript, với vai trò ngôn ngữ chính cho lập trình phía client, đ�
 Các API như Fetch và XMLHttpRequest cho phép gửi yêu cầu HTTP, tải dữ liệu động, và xây dựng các ứng dụng web tương tác.  
 Bài viết này, được cập nhật vào ngày 17/10/2025 dựa trên thông tin từ sáng 16/10/2025 lúc 09:40 AM +07, sẽ hướng dẫn chi tiết cách JavaScript xử lý lập trình mạng cơ bản.
 
-![JavaScript Network](https://nhittt29.github.io/MyTechTales/images/js-network.png "JavaScript và mạng")
+![JavaScript Network](https://nhittt29.github.io/MyTechTales/images/js-network.jpg "JavaScript và mạng")
 
 ## 2. Vai trò của JavaScript trong lập trình mạng
 
