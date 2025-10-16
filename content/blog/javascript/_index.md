@@ -5,6 +5,4 @@ draft: false
 type: "category"
 ---
 
-## Chuyên mục Lập trình JavaScript
-
 Chuyên mục **JavaScript** chia sẻ về các kiến thức, ví dụ và ứng dụng thực tế trong lập trình mạng, web và xử lý dữ liệu thời gian thực.
