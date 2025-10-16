@@ -1,7 +1,29 @@
 {{ define "main" }}
-  <main class="max-w-3xl mx-auto text-center py-10">
-    <h1 class="text-4xl font-bold mb-4">Xin chào 👋</h1>
-    <p class="text-lg">Chào mừng bạn đến với <b>MyTechTales</b> 🎉<br>
-    Đây là nơi mình chia sẻ về <b>Java</b>, <b>JavaScript</b> và công nghệ thú vị khác.</p>
+  <main class="max-w-4xl mx-auto px-4 py-12 text-center bg-white shadow-lg rounded-lg">
+    <!-- Header với hình ảnh nền -->
+    <div class="relative mb-8">
+      <img src="https://nhittt29.github.io/MyTechTales/images/network-pic.jpg" alt=" Network Programming Illustration" class="w-full h-64 object-cover rounded-t-lg" loading="lazy">
+      <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+        <h1 class="text-5xl font-extrabold text-white drop-shadow-lg">Xin chào 👋</h1>
+      </div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="px-6">
+      <p class="text-xl text-gray-700 leading-relaxed">
+        Chào mừng bạn đến với <b class="text-blue-600">MyTechTales</b> 🎉<br>
+        Đây là nơi mình chia sẻ hành trình khám phá <b class="text-green-600">Java</b>, <b class="text-yellow-600">JavaScript</b>, và những công nghệ thú vị khác liên quan đến lập trình mạng và hơn thế nữa!
+      </p>
+
+      <!-- Thêm mô tả ngắn gọn và lời kêu gọi -->
+      <p class="mt-4 text-lg text-gray-600">
+        Hãy cùng mình lặn sâu vào thế giới code, từ xây dựng API đến ứng dụng thời gian thực. Đừng quên khám phá các bài viết và để lại ý kiến nhé! 🚀
+      </p>
+
+      <!-- Nút kêu gọi hành động (CTA) -->
+      <a href="/blog" class="mt-6 inline-block px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300">
+        Khám phá bài viết ngay
+      </a>
+    </div>
   </main>
 {{ end }}
