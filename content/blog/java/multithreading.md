@@ -12,7 +12,7 @@ summary: "Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử 
 Ví dụ, một server cần phục vụ hàng trăm client cùng lúc mà không bị tắc nghẽn.  
 Bài viết này, được cập nhật vào sáng ngày 16/10/2025 lúc 09:23 AM +07, sẽ giải thích cách triển khai đa tuyến, ưu điểm, thách thức, và ứng dụng trong mạng.
 
-![Multithreading](https://nhittt29.github.io/MyTechTales/images/multithreading.png "Đa tuyến trong mạng")
+![Multithreading](https://nhittt29.github.io/MyTechTales/images/multithreading.jpg "Đa tuyến trong mạng")
 
 ## 2. Vai trò của đa tuyến trong lập trình mạng
 

@@ -12,7 +12,7 @@ Lập trình mạng là lĩnh vực quan trọng trong phát triển phần mề
 Java, với các thư viện mạng tích hợp sẵn như `java.net`, trở thành ngôn ngữ lý tưởng để xây dựng các ứng dụng mạng nhờ tính ổn định và khả năng tương thích cao.  
 Bài viết này sẽ giới thiệu các khái niệm cơ bản, vai trò, và cách tiếp cận lập trình mạng bằng Java.
 
-![Lập trình mạng](https://nhittt29.github.io/MyTechTales/images/network-overview.png "Tổng quan mạng Java")
+![Lập trình mạng](https://nhittt29.github.io/MyTechTales/images/network-overview.jpg "Tổng quan mạng Java")
 
 ## 2. Vai trò của lập trình mạng
 

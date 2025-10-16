@@ -11,7 +11,7 @@ summary: "Hướng dẫn sử dụng Node.js và JavaScript để xây dựng se
 **Node.js** là một môi trường runtime cho JavaScript, cho phép xây dựng server mạng mạnh mẽ.  
 Nó đặc biệt phù hợp để xử lý các ứng dụng mạng thời gian thực nhờ mô hình không chặn (non-blocking).
 
-![Node.js Server](https://nhittt29.github.io/MyTechTales/images/node-server.png "Sơ đồ luồng xử lý server Node.js")
+![Node.js Server](https://nhittt29.github.io/MyTechTales/images/nodejs-server.png "Sơ đồ luồng xử lý server Node.js")
 
 ## 2. Vai trò trong lập trình mạng
 
