@@ -32,7 +32,12 @@ theme = "PaperMod"
   ShowPostsOnHome = false
   ShowCover = false
   customCSS = ["/css/custom.css"]
-  future = true  # Thêm dòng này
+
+  # Cho phép hiển thị bài viết có ngày trong tương lai
+  future = true
+  
+  # Ẩn footer mặc định của PaperMod
+  # disableFooter = true
 
 [params.cover]
   linkFullImages = true
