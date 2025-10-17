@@ -22,23 +22,20 @@
             <span class="highlight">My Tech Tales</span> – Hành trình khám phá lập trình mạng
           </h1>
           <p>
-            Blog này được tạo ra dành cho những ai yêu thích <strong>lập trình mạng</strong> 
-            và muốn khám phá cách các hệ thống kết nối, trao đổi và vận hành cùng nhau. 
-            Tại đây, mình chia sẻ những kiến thức thực tiễn, kinh nghiệm và dự án xoay quanh 
-            <em>Java</em>, <em>JavaScript</em> cùng các giao thức mạng phổ biến hiện nay.
+            Blog này được tạo ra dành cho những ai yêu thích lập trình mạng và muốn khám phá cách các hệ thống kết nối, trao đổi và vận hành cùng nhau. Tại đây, mình chia sẻ kiến thức thực tiễn, kinh nghiệm và dự án về lập trình Java (cơ sở trong mạng, web, ứng dụng; đa tuyến; socket TCP; quản lý luồng I/O; dịch vụ kết nối mạng) và JavaScript (cơ bản, API, Node.js server, WebSocket thời gian thực, xử lý JSON) cùng các giao thức mạng phổ biến.
           </p>
           <p>
             Ở đây, bạn sẽ tìm thấy những bài viết về:
           </p>
           <ul>
-            <li>🔹 Xây dựng ứng dụng <strong>client–server</strong> trong Java</li>
-            <li>🔹 Làm việc với <strong>WebSocket</strong>, <strong>REST API</strong> và <strong>HTTP</strong></li>
-            <li>🔹 Ứng dụng <strong>real-time</strong> bằng JavaScript</li>
-            <li>🔹 Tối ưu kết nối mạng trong dự án thực tế</li>
+            <li>🔹 Lập trình Java cơ sở và đa tuyến cho ứng dụng mạng</li>
+            <li>🔹 Sử dụng socket TCP và quản lý luồng I/O trong Java</li>
+            <li>🔹 Quản lý dịch vụ kết nối mạng hiệu quả với Java</li>
+            <li>🔹 Lập trình JavaScript với API, WebSocket, và JSON</li>
+            <li>🔹 Tạo server mạng với Node.js và tối ưu giao tiếp mạng</li>
           </ul>
           <p>
-            Mục tiêu của mình là giúp bạn hiểu cách các hệ thống giao tiếp qua mạng,
-            từ lý thuyết đến thực hành — qua những ví dụ sinh động và dễ áp dụng.
+            Mục tiêu của mình là giúp bạn hiểu cách các hệ thống giao tiếp qua mạng, từ lý thuyết đến thực hành, qua những ví dụ sinh động và dễ áp dụng.
           </p>
         </div>
       </div>
@@ -48,38 +45,45 @@
   <!-- ====== FOOTER ====== -->
   <footer class="site-footer">
     <div class="footer-content">
-      <p><strong>📫 Liên hệ:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></p>
-      <p>
-        🌐 Theo dõi mình tại: 
-        <a href="https://github.com/nhittt29" target="_blank">GitHub</a> | 
-        <a href="https://linkedin.com/in/nhittt" target="_blank">LinkedIn</a> |
-        <a href="https://facebook.com/nhittt29" target="_blank">Facebook</a> |
-        <a href="https://instagram.com/nhittt29" target="_blank">Instagram</a>
-      </p>
+      <!-- Hai phần nằm ngang -->
+      <div class="footer-row">
+        <p><strong>📫 Liên hệ:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></p>
+        <p>
+          🌐 Theo dõi mình tại: 
+          <a href="https://github.com/nhittt29" target="_blank">GitHub</a> | 
+          <a href="https://linkedin.com/in/nhittt" target="_blank">LinkedIn</a> |
+          <a href="https://facebook.com/nhittt29" target="_blank">Facebook</a> |
+          <a href="https://instagram.com/nhittt29" target="_blank">Instagram</a>
+        </p>
+      </div>
       <p>© 2025 My Tech Tales · Designed & coded by Nhi</p>
     </div>
   </footer>
 </div>
 
 <style>
-/* ==== VÙNG FULL-WIDTH ==== */
+/* ==== RESET ==== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 💡 Tắt cuộn xuống */
+}
+
+/* ==== FULL-WIDTH WRAPPER ==== */
 .homepage-wrapper {
   width: 100vw;
+  margin-left: calc(-50vw + 50%);
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow: hidden;
-
+  background-color: #0a192f;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* đảm bảo footer luôn nằm đáy */
+  height: 100vh; /* 💡 Chiếm toàn bộ chiều cao màn hình */
 }
 
 /* ==== BACKGROUND FULL ==== */
 .homepage {
-  flex: 1; /* chiếm toàn bộ phần còn lại của màn hình */
+  flex: 1;
   position: relative;
   width: 100%;
   background: url('https://nhittt29.github.io/MyTechTales/images/Data-Analyst-vs.-Data-Scientist.jpg')
@@ -87,8 +91,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
+/* ==== LỚP PHỦ NỀN ==== */
 .intro-overlay {
   position: absolute;
   inset: 0;
@@ -96,19 +102,23 @@
   z-index: 1;
 }
 
+/* ==== DÒNG CHỮ TRÊN BACKGROUND ==== */
 .background-content {
   position: absolute;
   inset: 0;
   z-index: 2;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  color: rgba(255, 255, 255, 0.3); /* Semi-transparent text */
+  color: rgba(255, 255, 255, 0.3);
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  pointer-events: none; /* Prevent interaction with background text */
+  padding-top: 2rem;
+  pointer-events: none;
+  letter-spacing: 0.4rem;
 }
 
 .background-text {
@@ -116,14 +126,16 @@
   padding: 0 1rem;
 }
 
+/* ==== PHẦN GIỚI THIỆU ==== */
 .intro-container {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 4rem 6%;
+  padding: 3rem 6%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .intro-content {
@@ -131,14 +143,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 2rem;
   width: 100%;
   max-width: 1200px;
   color: #fff;
 }
 
 .intro-image img {
-  width: 340px;
+  width: 300px;
   max-width: 100%;
   border-radius: 14px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
@@ -150,14 +162,14 @@
 }
 
 .intro-text {
-  max-width: 600px;
+  max-width: 580px;
   animation: fadeIn 1.2s ease;
 }
 
 .intro-text h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   line-height: 1.4;
   color: #fff;
 }
@@ -167,10 +179,10 @@
 }
 
 .intro-text p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #e0e0e0;
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
 }
 
 .intro-text ul {
@@ -179,7 +191,7 @@
 }
 
 .intro-text li {
-  margin: 0.3rem 0;
+  margin: 0.2rem 0;
   font-size: 1rem;
   color: #d9e9ff;
 }
@@ -189,10 +201,34 @@
   background: #0a192f;
   color: #d9e9ff;
   text-align: center;
-  padding: 1rem 1rem;
-  font-size: 0.95rem;
+  padding: 3rem 1.5rem;
+  font-size: 1rem;
   border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: auto;
+  flex-shrink: 0;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-content {
+  margin: 0;
+  line-height: 1.8;
+  max-width: 900px;
+}
+
+/* 💡 Flex hàng ngang giữa Liên hệ và Theo dõi */
+.footer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem; /* 👈 khoảng cách giữa 2 phần */
+  margin-bottom: 1rem;
+}
+
+.footer-row p {
+  margin: 0;
 }
 
 .site-footer a {
@@ -204,27 +240,32 @@
   text-decoration: underline;
 }
 
-.footer-content {
-  margin: 0;
-}
-
+/* ==== ANIMATION ==== */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ==== RESPONSIVE ==== */
 @media (max-width: 768px) {
   .intro-content {
     flex-direction: column;
     text-align: center;
   }
 
+  .footer-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
   .intro-text h1 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .background-content {
     font-size: 1rem;
+    padding-top: 1rem;
+    letter-spacing: 0.25rem;
   }
 }
 </style>
