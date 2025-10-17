@@ -49,7 +49,7 @@
         <p>© 2025 <strong>My Tech Tales</strong> · Designed & coded by Nhi</p>
         <p><strong>📫 Liên hệ:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></p>
         <p>
-          🌐 Theo dõi mình tại: 
+          🌐 Theo dõi: 
           <a href="https://github.com/nhittt29" target="_blank">GitHub</a> | 
           <a href="https://linkedin.com/in/nhittt" target="_blank">LinkedIn</a> |
           <a href="https://facebook.com/nhittt29" target="_blank">Facebook</a> |
@@ -212,14 +212,19 @@ html, body {
 .footer-content {
   max-width: 1100px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around; /* căn đều 3 phần */
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 3rem; /* khoảng cách giữa các phần */
+  flex-wrap: nowrap; /* giữ cùng 1 dòng */
+  white-space: nowrap; /* tránh xuống dòng */
+  width: 100%;
 }
 
 .footer-row p {
@@ -250,6 +255,7 @@ html, body {
   .footer-row {
     flex-direction: column;
     gap: 0.6rem;
+    white-space: normal; /* cho phép xuống dòng lại */
   }
 }
 
