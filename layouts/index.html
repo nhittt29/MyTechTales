@@ -18,12 +18,12 @@
           <h1>
             <span class="highlight">My Tech Tales</span> – Hành trình khám phá lập trình mạng
           </h1>
-          <p>
-            Blog này được tạo ra dành cho những ai yêu thích <strong>lập trình mạng</strong> 
-            và muốn khám phá cách các hệ thống kết nối, trao đổi và vận hành cùng nhau. 
-            Tại đây, mình chia sẻ những kiến thức thực tiễn, kinh nghiệm và dự án xoay quanh 
-            <em>Java</em>, <em>JavaScript</em> cùng các giao thức mạng phổ biến hiện nay.
-          </p>
+         <p>
+          Blog này được tạo ra dành cho những ai yêu thích <strong>lập trình mạng</strong> 
+          và muốn khám phá cách các hệ thống kết nối, trao đổi và vận hành cùng nhau. 
+          Tại đây, mình chia sẻ những kiến thức thực tiễn, kinh nghiệm và dự án xoay quanh 
+          <em>Java</em>, <em>JavaScript</em> cùng các giao thức mạng phổ biến hiện nay.
+        </p>
           <p>
             Ở đây, bạn sẽ tìm thấy những bài viết về:
           </p>
@@ -41,34 +41,34 @@
       </div>
     </div>
   </div>
+
+  <!-- ==== FOOTER ==== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 <strong>My Tech Tales</strong> — Blog chia sẻ về lập trình mạng và công nghệ.</p>
+      <p>
+        Liên hệ: 
+        <a href="mailto:yourmail@example.com">yourmail@example.com</a> |
+        <a href="https://github.com/nhittt29" target="_blank">GitHub</a> |
+        <a href="https://linkedin.com/in/nhittt29" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
 </div>
 
-<!-- ==== FOOTER ==== -->
-<footer class="custom-footer">
-  <div class="footer-content">
-    <p>© 2025 <strong>My Tech Tales</strong> — Blog chia sẻ về lập trình mạng và công nghệ.</p>
-    <p>
-      Liên hệ: 
-      <a href="mailto:yourmail@example.com">yourmail@example.com</a> |
-      <a href="https://github.com/nhittt29" target="_blank">GitHub</a> |
-      <a href="https://linkedin.com/in/nhittt29" target="_blank">LinkedIn</a>
-    </p>
-  </div>
-</footer>
-
 <style>
-/* ==== VÙNG FULL-WIDTH ==== */
+/* ==== FULL WIDTH ==== */
 .homepage-wrapper {
-  width: 100vw;           
+  width: 100vw;
   position: relative;
-  left: 50%;              
+  left: 50%;
   right: 50%;
-  margin-left: -50vw;     
+  margin-left: -50vw;
   margin-right: -50vw;
   overflow: hidden;
 }
 
-/* ==== BACKGROUND FULL ==== */
+/* ==== BACKGROUND ==== */
 .homepage {
   position: relative;
   width: 100%;
@@ -80,7 +80,6 @@
   align-items: center;
 }
 
-/* Lớp phủ mờ */
 .intro-overlay {
   position: absolute;
   inset: 0;
@@ -88,7 +87,6 @@
   z-index: 1;
 }
 
-/* Nội dung chính */
 .intro-container {
   position: relative;
   z-index: 2;
@@ -162,30 +160,23 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==== FOOTER FULL WIDTH ==== */
-.custom-footer {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background: rgba(10, 25, 47, 0.9);
+/* ==== FOOTER ==== */
+.site-footer {
+  background: #0a192f;
   color: #ccd6f6;
   text-align: center;
-  padding: 1.8rem 1rem;
+  padding: 1.5rem 1rem;
   font-size: 0.95rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.custom-footer a {
+.site-footer a {
   color: #64ffda;
   text-decoration: none;
   margin: 0 0.4rem;
 }
 
-.custom-footer a:hover {
+.site-footer a:hover {
   text-decoration: underline;
 }
 
