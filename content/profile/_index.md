@@ -1,10 +1,8 @@
 ---
-title: "Về Tôi"
+title: "Giới Thiệu & Kinh Nghiệm Nghề Nghiệp"
 date: 2025-10-01T15:03:00+07:00
 draft: false
 ---
-
-## Về Tôi
 
 ## Giới Thiệu
 
