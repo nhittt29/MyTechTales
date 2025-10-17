@@ -2,26 +2,37 @@
 <div class="homepage">
   <div class="intro-container">
     <div class="intro-content">
+      <!-- Ảnh minh họa bên trái -->
       <div class="intro-image">
         <img 
           src="https://nhittt29.github.io/MyTechTales/images/data-analytics.jpg" 
-          alt="data-analytics" 
+          alt="Network Programming Illustration" 
         />
       </div>
+
+      <!-- Nội dung bên phải -->
       <div class="intro-text">
         <h1>
-          <span class="highlight">Biến Dữ Liệu</span> thành Giải Pháp Chiến Lược
+          <span class="highlight">My Tech Tales</span> – Hành trình khám phá lập trình mạng
         </h1>
         <p>
-          Xin chào! Mình là <strong>Nhị</strong> — một người làm 
-          <strong>Business Analyst & Data Analyst</strong>. 
-          Mình đam mê việc khai thác dữ liệu, hiểu người dùng 
-          và giúp doanh nghiệp đưa ra quyết định chính xác dựa trên dữ liệu thực tế.
+          Xin chào! Mình là <strong>Nhị</strong> 👋 — một lập trình viên yêu thích 
+          <strong>lập trình mạng</strong> và các công nghệ kết nối hệ thống.
+          Mình tạo ra blog này để chia sẻ kiến thức, kinh nghiệm và dự án thực tế
+          xoay quanh <em>Java</em>, <em>JavaScript</em> và các giao thức mạng.
         </p>
         <p>
-          Trên blog <strong>My Tech Tales</strong>, mình chia sẻ góc nhìn, kinh nghiệm và hướng dẫn về 
-          <em>phân tích dữ liệu, BI, dashboard, storytelling</em> 
-          và tư duy chiến lược trong doanh nghiệp hiện đại.
+          Ở đây, bạn sẽ tìm thấy những bài viết về:
+        </p>
+        <ul>
+          <li>🔹 Xây dựng ứng dụng <strong>client–server</strong> trong Java</li>
+          <li>🔹 Làm việc với <strong>WebSocket</strong>, <strong>REST API</strong> và <strong>HTTP</strong></li>
+          <li>🔹 Ứng dụng <strong>real-time</strong> bằng JavaScript</li>
+          <li>🔹 Tối ưu kết nối mạng trong dự án thực tế</li>
+        </ul>
+        <p>
+          Mục tiêu của mình là giúp bạn hiểu cách các hệ thống giao tiếp qua mạng,
+          từ lý thuyết đến thực hành — qua những ví dụ sinh động và dễ áp dụng.
         </p>
       </div>
     </div>
@@ -29,37 +40,48 @@
 </div>
 
 <style>
+/* ==== PHẦN TRANG CHỦ ==== */
 .homepage {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  background: #f7f9fb;
+  min-height: 100vh;
+  background-image: url('https://nhittt29.github.io/MyTechTales/images/Data-Analyst-vs.-Data-Scientist.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lớp phủ mờ để chữ dễ đọc hơn */
+.homepage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 47, 0.6); /* lớp overlay xanh đậm mờ */
+  z-index: 0;
 }
 
 .intro-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 1100px;
   padding: 2rem;
   gap: 3rem;
-}
-
-.intro-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  text-align: left;
+  color: white;
 }
 
 .intro-image img {
   width: 320px;
   max-width: 100%;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.8s ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease;
 }
 
 .intro-image img:hover {
@@ -67,35 +89,48 @@
 }
 
 .intro-text {
-  max-width: 550px;
+  max-width: 560px;
+  animation: fadeIn 1.4s ease;
 }
 
 .intro-text h1 {
   font-size: 2rem;
   font-weight: 700;
-  color: #0d1b2a;
+  color: #fff;
   margin-bottom: 1rem;
   line-height: 1.4;
 }
 
 .intro-text .highlight {
-  color: #0077cc;
+  color: #4db8ff;
 }
 
 .intro-text p {
   font-size: 1.05rem;
-  color: #333;
-  line-height: 1.6;
+  color: #e0e0e0;
+  line-height: 1.7;
   margin-bottom: 1rem;
+}
+
+.intro-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.intro-text li {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #d9e9ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
   .intro-container {
     flex-direction: column;
-    text-align: center;
-  }
-
-  .intro-text {
     text-align: center;
   }
 
