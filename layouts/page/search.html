@@ -19,7 +19,16 @@
       if (!content) return "Không có nội dung để hiển thị.";
       const regex = new RegExp(`(.{0,80})${keyword}(.{0,80})`, "gi");
       const matches = content.match(regex);
-      if (!matches) return content.slice(0, 160) + "...";
+      if (!matches) {
+        // Nếu không tìm thấy khớp chính xác, tìm từ khóa trong toàn bộ nội dung
+        const index = content.toLowerCase().indexOf(keyword.toLowerCase());
+        if (index !== -1) {
+          const start = Math.max(0, index - 80);
+          const end = Math.min(content.length, index + keyword.length + 80);
+          return content.slice(start, end).replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>") + "...";
+        }
+        return content.slice(0, 160) + "...";
+      }
       return matches[0].replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>") + "...";
     }
 
