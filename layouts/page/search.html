@@ -1,0 +1,78 @@
+{{ define "main" }}
+<section class="search-page" style="padding:2rem;max-width:850px;margin:auto;">
+  <h1 style="margin-bottom:1rem;">Tìm kiếm 🔍</h1>
+  <p>Nhập từ khóa để tìm bài viết có chứa từ đó</p>
+
+  <input id="search-input" type="text" placeholder="Ví dụ: môi trường runtime, JavaScript, API..."
+         style="width:100%;padding:10px;border-radius:8px;border:1px solid #bbb;margin-top:10px;">
+  <div id="search-results" style="margin-top:2rem;"></div>
+
+  <script>
+    // --- Tải dữ liệu từ index.json ---
+    async function loadIndex() {
+      const res = await fetch('{{ "index.json" | absURL }}');
+      return await res.json();
+    }
+
+    // --- Hàm cắt đoạn văn chứa từ khóa ---
+    function extractSnippet(content, keyword) {
+      if (!content) return "";
+      const regex = new RegExp(`(.{0,60})(${keyword})(.{0,60})`, "gi");
+      const matches = content.match(regex);
+      if (!matches) return content.slice(0, 120) + "...";
+
+      // Chỉ lấy 1–2 kết quả đầu tiên cho gọn
+      const snippets = matches.slice(0, 2).map(snippet => {
+        return snippet.replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>");
+      });
+
+      return snippets.join(" … ") + "...";
+    }
+
+    // --- Hiển thị kết quả tìm kiếm ---
+    function renderResults(results, keyword) {
+      const container = document.getElementById("search-results");
+      container.innerHTML = "";
+
+      if (results.length === 0) {
+        container.innerHTML = "<p>Không tìm thấy kết quả nào phù hợp.</p>";
+        return;
+      }
+
+      results.forEach(post => {
+        const div = document.createElement("div");
+        div.style.marginBottom = "1.5rem";
+        const snippet = extractSnippet(post.content || post.summary, keyword);
+        div.innerHTML = `
+          <div style="background:#fff;border:1px solid #ddd;padding:1rem;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <h3><a href="${post.permalink}" style="color:#0077cc;text-decoration:none;">${post.title}</a></h3>
+            <p style="color:#444;line-height:1.6;">${snippet}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // --- Xử lý khi nhập từ khóa ---
+    document.addEventListener("DOMContentLoaded", async () => {
+      const data = await loadIndex();
+      const input = document.getElementById("search-input");
+
+      input.addEventListener("input", e => {
+        const keyword = e.target.value.trim();
+        if (!keyword) {
+          document.getElementById("search-results").innerHTML = "";
+          return;
+        }
+
+        const results = data.filter(post =>
+          post.title.toLowerCase().includes(keyword.toLowerCase()) ||
+          (post.content && post.content.toLowerCase().includes(keyword.toLowerCase()))
+        );
+
+        renderResults(results, keyword);
+      });
+    });
+  </script>
+</section>
+{{ end }}

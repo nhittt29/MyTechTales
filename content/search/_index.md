@@ -1,5 +1,5 @@
 ---
 title: "Tìm kiếm"
 layout: "search"
-description: "Tìm kiếm bài viết trên My Tech Tales"
+description: "Trang tìm kiếm bài viết trong Blog"
 ---
