@@ -40,7 +40,7 @@
       return snippet + (end < content.length ? "..." : "");
     }
 
-    // --- Hiển thị kết quả tìm kiếm (phương pháp chính) ---
+    // --- Hiển thị kết quả tìm kiếm ---
     function renderResults(results, keyword) {
       const container = document.getElementById("search-results");
       container.innerHTML = "";
@@ -53,6 +53,7 @@
       results.forEach(post => {
         const div = document.createElement("div");
         div.style.marginBottom = "1.5rem";
+        // Ưu tiên content, sau đó summary, description, và fallback
         const snippet = extractSnippet(
           post.content || post.summary || post.description || "Nội dung không khả dụng.",
           keyword
@@ -68,7 +69,7 @@
       });
     }
 
-    // --- Xử lý khi nhập từ khóa (phương pháp chính) ---
+    // --- Xử lý khi nhập từ khóa ---
     document.addEventListener("DOMContentLoaded", async () => {
       const data = await loadIndex();
       const input = document.getElementById("search-input");
@@ -90,57 +91,6 @@
         renderResults(results, keyword);
       });
     });
-
-    // --- Phương pháp bổ sung từ search.js ---
-    const searchInputAlt = document.getElementById("search-input");
-    const searchResultsAlt = document.getElementById("search-results");
-
-    if (searchInputAlt) {
-      let pages = [];
-
-      // ✅ Đảm bảo đúng đường dẫn dựa trên baseURL
-      fetch("{{ .Site.BaseURL }}index.json")
-        .then(res => {
-          if (!res.ok) throw new Error("Không thể tải index.json");
-          return res.json();
-        })
-        .then(data => {
-          pages = data;
-          console.log("Dữ liệu từ index.json (phương pháp alt):", data); // Gỡ lỗi
-        })
-        .catch(error => console.error("Lỗi khi tải index.json (phương pháp alt):", error));
-
-      searchInputAlt.addEventListener("input", function () {
-        const query = this.value.toLowerCase().trim();
-        searchResultsAlt.innerHTML = "";
-
-        if (query.length < 2) return; // Chỉ hiện khi gõ ≥ 2 ký tự
-
-        const filtered = pages.filter(p =>
-          (p.title && p.title.toLowerCase().includes(query)) ||
-          (p.summary && p.summary.toLowerCase().includes(query)) ||
-          (p.content && p.content.toLowerCase().includes(query))
-        );
-
-        if (filtered.length === 0) {
-          searchResultsAlt.innerHTML = "<p>Không tìm thấy kết quả.</p>";
-          return;
-        }
-
-        filtered.slice(0, 8).forEach(p => {
-          const item = document.createElement("a");
-          item.href = p.permalink;
-          item.classList.add("search-item");
-          const snippet = extractSnippet(p.content || p.summary || p.description || "", query);
-          item.innerHTML = `
-            <strong>${p.title || "Tiêu đề không có"}</strong>
-            <p>${snippet}</p>
-            <small>Nguồn: ${p.permalink.includes("/blog/") ? "Blog" : p.permalink.includes("/profile/") ? "Profile" : "Khác"}</small>
-          `;
-          searchResultsAlt.appendChild(item);
-        });
-      });
-    }
   </script>
 </section>
 {{ end }}

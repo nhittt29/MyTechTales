@@ -1,0 +1,61 @@
+{
+  "title": "Giới Thiệu & Kinh Nghiệm Nghề Nghiệp",
+  "permalink": "http://localhost:1313/MyTechTales/profile/",
+  "summary": "<h2 id="giới-thiệu">Giới Thiệu</h2>
+<p>Tôi là <strong>Trương Thị Tuyết Nhi</strong>, sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong>.<br>
+Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật.<br>
+Song song đó, tôi phát triển kỹ năng lập trình để hiểu sâu hơn cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>",
+  "content": "<h2 id="giới-thiệu">Giới Thiệu</h2>
+<p>Tôi là <strong>Trương Thị Tuyết Nhi</strong>, sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong>.<br>
+Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật.<br>
+Song song đó, tôi phát triển kỹ năng lập trình để hiểu sâu hơn cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
+<hr>
+<h2 id="mục-tiêu-nghề-nghiệp">Mục Tiêu Nghề Nghiệp</h2>
+<p>Trở thành <strong>Business Analyst chuyên sâu về hệ thống và dữ liệu</strong>, có khả năng:</p>
+<ul>
+<li>Phân tích, đặc tả và mô hình hóa yêu cầu nghiệp vụ.</li>
+<li>Là cầu nối giữa đội kỹ thuật và khách hàng, đảm bảo sản phẩm đáp ứng đúng nhu cầu.</li>
+<li>Ứng dụng kiến thức lập trình (<strong>Python, JavaScript, Node.js, Express</strong>) để hỗ trợ phân tích và phát triển sản phẩm phần mềm.</li>
+<li>Hiểu và sử dụng tốt các hệ quản trị cơ sở dữ liệu như <strong>MySQL, SQL Server, PostgreSQL, MongoDB</strong> trong việc phân tích và truy xuất dữ liệu.</li>
+</ul>
+<hr>
+<h2 id="kỹ-năng">Kỹ Năng</h2>
+<ul>
+<li><strong>Ngôn ngữ lập trình:</strong> TypeScript, Python, JavaScript</li>
+<li><strong>Backend:</strong> Node.js, Express</li>
+<li><strong>Cơ sở dữ liệu:</strong> MySQL, SQL Server, PostgreSQL, MongoDB</li>
+<li><strong>Phân tích nghiệp vụ:</strong> Đặc tả yêu cầu, Use Case, BPMN, mô hình quy trình</li>
+<li><strong>Kỹ năng mềm:</strong> Làm việc nhóm, học hỏi nhanh, tư duy phản biện</li>
+<li><strong>Công cụ làm việc:</strong> Git, Notion, Figma, Trello</li>
+</ul>
+<hr>
+<h2 id="học-vấn--chứng-chỉ">Học Vấn &amp; Chứng Chỉ</h2>
+<ul>
+<li><strong>Chuyên ngành:</strong> Hệ thống Thông tin – Sinh viên năm 4</li>
+<li><strong>Chứng chỉ:</strong>
+<ul>
+<li>Networking Basics</li>
+<li>JavaScript Essentials</li>
+<li>JavaScript Essentials 2</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="dự-án-tiêu-biểu">Dự Án Tiêu Biểu</h2>
+<ul>
+<li><strong>Quản Lý Startup:</strong> Xây dựng hệ thống hỗ trợ quản lý quy trình và hoạt động nội bộ của các startup.</li>
+<li><strong>OmniMer EDU:</strong> Nền tảng quản lý trường học đa nền tảng, tối ưu hoá công tác quản lý học sinh, lớp học, điểm danh và học phí.</li>
+<li><strong>Hệ Thống Quản Lý Bến Xe Đồng Mới:</strong> Thiết kế và phát triển hệ thống giúp tự động hóa quản lý vận hành bến xe.</li>
+</ul>
+<hr>
+<h2 id="liên-hệ">Liên Hệ</h2>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/nhittt29">github.com/nhittt29</a></li>
+<li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nhittt">linkedin.com/in/nhittt</a></li>
+<li><strong>Facebook:</strong> <a href="https://facebook.com/nhittt29">facebook.com/nhittt29</a></li>
+<li><strong>Instagram:</strong> <a href="https://instagram.com/nhittt29">instagram.com/nhittt29</a></li>
+</ul>
+",
+  "description": ""
+}
