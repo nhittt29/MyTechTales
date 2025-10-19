@@ -1,4 +1,4 @@
-{{ define "main" }}
+<!-- {{ define "main" }}
 <section class="search-page" style="padding:2rem;max-width:850px;margin:auto;">
   <h1 style="margin-bottom:1rem;">Tìm kiếm 🔍</h1>
   <p>Nhập từ khóa để tìm trong Blog và Profile</p>
@@ -10,22 +10,34 @@
   <script>
     // --- Tải dữ liệu từ index.json ---
     async function loadIndex() {
-      const res = await fetch('{{ "index.json" | absURL }}');
-      return await res.json();
+      try {
+        const res = await fetch('{{ "index.json" | absURL }}');
+        if (!res.ok) throw new Error("Không thể tải index.json");
+        const data = await res.json();
+        console.log("Dữ liệu từ index.json:", data); // Gỡ lỗi để kiểm tra dữ liệu
+        return data;
+      } catch (error) {
+        console.error("Lỗi khi tải index.json:", error);
+        return [];
+      }
     }
 
     // --- Hàm cắt đoạn văn chứa từ khóa ---
     function extractSnippet(content, keyword) {
-      if (!content || typeof content !== "string") return "Không tìm thấy nội dung phù hợp.";
+      if (!content || typeof content !== "string") {
+        return "Không tìm thấy nội dung phù hợp để hiển thị.";
+      }
       const lowerContent = content.toLowerCase();
       const lowerKeyword = keyword.toLowerCase();
       const index = lowerContent.indexOf(lowerKeyword);
-      if (index === -1) return content.slice(0, 160) + "...";
+      if (index === -1) {
+        return content.length > 160 ? content.slice(0, 160) + "..." : content;
+      }
 
       const start = Math.max(0, index - 80);
       const end = Math.min(content.length, index + keyword.length + 80);
       const snippet = content.slice(start, end).replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>");
-      return snippet + "...";
+      return snippet + (end < content.length ? "..." : "");
     }
 
     // --- Hiển thị kết quả tìm kiếm ---
@@ -41,13 +53,16 @@
       results.forEach(post => {
         const div = document.createElement("div");
         div.style.marginBottom = "1.5rem";
-        // Kiểm tra cả content, summary, và các trường khác nếu có
-        const snippet = extractSnippet(post.content || post.summary || post.description || "", keyword);
+        // Ưu tiên content, sau đó summary, description, và fallback
+        const snippet = extractSnippet(
+          post.content || post.summary || post.description || "Nội dung không khả dụng.",
+          keyword
+        );
         div.innerHTML = `
           <div style="background:#fff;border:1px solid #ddd;padding:1rem;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <h3><a href="${post.permalink}" style="color:#0077cc;text-decoration:none;">${post.title}</a></h3>
+            <h3><a href="${post.permalink}" style="color:#0077cc;text-decoration:none;">${post.title || "Tiêu đề không có"}</a></h3>
             <p style="color:#444;line-height:1.6;">${snippet}</p>
-            <small style="color:#666;">Nguồn: ${post.permalink.includes("/blog/") ? "Blog" : "Profile"}</small>
+            <small style="color:#666;">Nguồn: ${post.permalink.includes("/blog/") ? "Blog" : post.permalink.includes("/profile/") ? "Profile" : "Khác"}</small>
           </div>
         `;
         container.appendChild(div);
@@ -67,10 +82,10 @@
         }
 
         const results = data.filter(post =>
-          post.title.toLowerCase().includes(keyword) ||
+          (post.title && post.title.toLowerCase().includes(keyword)) ||
           (post.content && post.content.toLowerCase().includes(keyword)) ||
           (post.summary && post.summary.toLowerCase().includes(keyword)) ||
-          (post.description && post.description.toLowerCase().includes(keyword)) // Thêm trường description nếu có
+          (post.description && post.description.toLowerCase().includes(keyword))
         );
 
         renderResults(results, keyword);
@@ -78,4 +93,4 @@
     });
   </script>
 </section>
-{{ end }}
+{{ end }} -->
