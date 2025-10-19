@@ -16,20 +16,16 @@
 
     // --- Hàm cắt đoạn văn chứa từ khóa ---
     function extractSnippet(content, keyword) {
-      if (!content) return "Không có nội dung để hiển thị.";
-      const regex = new RegExp(`(.{0,80})${keyword}(.{0,80})`, "gi");
-      const matches = content.match(regex);
-      if (!matches) {
-        // Nếu không tìm thấy khớp chính xác, tìm từ khóa trong toàn bộ nội dung
-        const index = content.toLowerCase().indexOf(keyword.toLowerCase());
-        if (index !== -1) {
-          const start = Math.max(0, index - 80);
-          const end = Math.min(content.length, index + keyword.length + 80);
-          return content.slice(start, end).replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>") + "...";
-        }
-        return content.slice(0, 160) + "...";
-      }
-      return matches[0].replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>") + "...";
+      if (!content || typeof content !== "string") return "Không tìm thấy nội dung phù hợp.";
+      const lowerContent = content.toLowerCase();
+      const lowerKeyword = keyword.toLowerCase();
+      const index = lowerContent.indexOf(lowerKeyword);
+      if (index === -1) return content.slice(0, 160) + "...";
+
+      const start = Math.max(0, index - 80);
+      const end = Math.min(content.length, index + keyword.length + 80);
+      const snippet = content.slice(start, end).replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>");
+      return snippet + "...";
     }
 
     // --- Hiển thị kết quả tìm kiếm ---
@@ -62,16 +58,16 @@
       const input = document.getElementById("search-input");
 
       input.addEventListener("input", e => {
-        const keyword = e.target.value.trim().toLowerCase();
+        const keyword = e.target.value.trim();
         if (!keyword) {
           document.getElementById("search-results").innerHTML = "";
           return;
         }
 
         const results = data.filter(post =>
-          post.title.toLowerCase().includes(keyword) ||
-          (post.content && post.content.toLowerCase().includes(keyword)) ||
-          (post.summary && post.summary.toLowerCase().includes(keyword))
+          post.title.toLowerCase().includes(keyword.toLowerCase()) ||
+          (post.content && post.content.toLowerCase().includes(keyword.toLowerCase())) ||
+          (post.summary && post.summary.toLowerCase().includes(keyword.toLowerCase()))
         );
 
         renderResults(results, keyword);

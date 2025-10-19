@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Network Services on My Tech Tales</title><link>https://nhittt29.github.io/MyTechTales/tags/network-services/</link><description>Recent content in Network Services on My Tech Tales</description><generator>Hugo -- 0.150.0</generator><language>vi</language><lastBuildDate>Thu, 16 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://nhittt29.github.io/MyTechTales/tags/network-services/index.xml" rel="self" type="application/rss+xml"/><item><title>Quản lý dịch vụ kết nối mạng</title><link>https://nhittt29.github.io/MyTechTales/blog/java/network-services/</link><pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate><guid>https://nhittt29.github.io/MyTechTales/blog/java/network-services/</guid><description>Hướng dẫn chi tiết cách quản lý dịch vụ kết nối mạng hiệu quả trong Java, từ giám sát đến tối ưu hóa, cập nhật ngày 16/10/2025.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Network Services on My Tech Tales</title>
+    <link>https://nhittt29.github.io/MyTechTales/tags/network-services/</link>
+    <description>Recent content in Network Services on My Tech Tales</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>vi</language>
+    <lastBuildDate>Thu, 16 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://nhittt29.github.io/MyTechTales/tags/network-services/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quản lý dịch vụ kết nối mạng</title>
+      <link>https://nhittt29.github.io/MyTechTales/blog/java/network-services/</link>
+      <pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://nhittt29.github.io/MyTechTales/blog/java/network-services/</guid>
+      <description>Hướng dẫn chi tiết cách quản lý dịch vụ kết nối mạng hiệu quả trong Java, từ giám sát đến tối ưu hóa, cập nhật ngày 16/10/2025.</description>
+    </item>
+  </channel>
+</rss>
