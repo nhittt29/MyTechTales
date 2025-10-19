@@ -1,9 +1,9 @@
 {{ define "main" }}
 <section class="search-page" style="padding:2rem;max-width:850px;margin:auto;">
   <h1 style="margin-bottom:1rem;">Tìm kiếm 🔍</h1>
-  <p>Nhập từ khóa để tìm bài viết có chứa từ đó</p>
+  <p>Nhập từ khóa để tìm trong Blog và Profile</p>
 
-  <input id="search-input" type="text" placeholder="Ví dụ: môi trường runtime, JavaScript, API..."
+  <input id="search-input" type="text" placeholder="Ví dụ: môi trường runtime, JavaScript, API, Profile..."
          style="width:100%;padding:10px;border-radius:8px;border:1px solid #bbb;margin-top:10px;">
   <div id="search-results" style="margin-top:2rem;"></div>
 
@@ -41,11 +41,13 @@
       results.forEach(post => {
         const div = document.createElement("div");
         div.style.marginBottom = "1.5rem";
-        const snippet = extractSnippet(post.content || post.summary || "", keyword);
+        // Kiểm tra cả content, summary, và các trường khác nếu có
+        const snippet = extractSnippet(post.content || post.summary || post.description || "", keyword);
         div.innerHTML = `
           <div style="background:#fff;border:1px solid #ddd;padding:1rem;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
             <h3><a href="${post.permalink}" style="color:#0077cc;text-decoration:none;">${post.title}</a></h3>
             <p style="color:#444;line-height:1.6;">${snippet}</p>
+            <small style="color:#666;">Nguồn: ${post.permalink.includes("/blog/") ? "Blog" : "Profile"}</small>
           </div>
         `;
         container.appendChild(div);
@@ -58,16 +60,17 @@
       const input = document.getElementById("search-input");
 
       input.addEventListener("input", e => {
-        const keyword = e.target.value.trim();
+        const keyword = e.target.value.trim().toLowerCase();
         if (!keyword) {
           document.getElementById("search-results").innerHTML = "";
           return;
         }
 
         const results = data.filter(post =>
-          post.title.toLowerCase().includes(keyword.toLowerCase()) ||
-          (post.content && post.content.toLowerCase().includes(keyword.toLowerCase())) ||
-          (post.summary && post.summary.toLowerCase().includes(keyword.toLowerCase()))
+          post.title.toLowerCase().includes(keyword) ||
+          (post.content && post.content.toLowerCase().includes(keyword)) ||
+          (post.summary && post.summary.toLowerCase().includes(keyword)) ||
+          (post.description && post.description.toLowerCase().includes(keyword)) // Thêm trường description nếu có
         );
 
         renderResults(results, keyword);
