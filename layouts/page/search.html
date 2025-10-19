@@ -41,7 +41,7 @@
       results.forEach(post => {
         const div = document.createElement("div");
         div.style.marginBottom = "1.5rem";
-        const snippet = extractSnippet(post.content || post.summary, keyword);
+        const snippet = extractSnippet(post.content || post.summary || "", keyword);
         div.innerHTML = `
           <div style="background:#fff;border:1px solid #ddd;padding:1rem;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
             <h3><a href="${post.permalink}" style="color:#0077cc;text-decoration:none;">${post.title}</a></h3>
