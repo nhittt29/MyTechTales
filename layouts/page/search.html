@@ -16,7 +16,7 @@
 
     // --- Hàm cắt đoạn văn chứa từ khóa ---
     function extractSnippet(content, keyword) {
-      if (!content) return "";
+      if (!content) return "Không có nội dung để hiển thị.";
       const regex = new RegExp(`(.{0,80})${keyword}(.{0,80})`, "gi");
       const matches = content.match(regex);
       if (!matches) return content.slice(0, 160) + "...";
