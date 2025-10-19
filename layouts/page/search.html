@@ -17,16 +17,10 @@
     // --- Hàm cắt đoạn văn chứa từ khóa ---
     function extractSnippet(content, keyword) {
       if (!content) return "";
-      const regex = new RegExp(`(.{0,60})(${keyword})(.{0,60})`, "gi");
+      const regex = new RegExp(`(.{0,80})${keyword}(.{0,80})`, "gi");
       const matches = content.match(regex);
-      if (!matches) return content.slice(0, 120) + "...";
-
-      // Chỉ lấy 1–2 kết quả đầu tiên cho gọn
-      const snippets = matches.slice(0, 2).map(snippet => {
-        return snippet.replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>");
-      });
-
-      return snippets.join(" … ") + "...";
+      if (!matches) return content.slice(0, 160) + "...";
+      return matches[0].replace(new RegExp(`(${keyword})`, "gi"), "<mark>$1</mark>") + "...";
     }
 
     // --- Hiển thị kết quả tìm kiếm ---
@@ -59,15 +53,16 @@
       const input = document.getElementById("search-input");
 
       input.addEventListener("input", e => {
-        const keyword = e.target.value.trim();
+        const keyword = e.target.value.trim().toLowerCase();
         if (!keyword) {
           document.getElementById("search-results").innerHTML = "";
           return;
         }
 
         const results = data.filter(post =>
-          post.title.toLowerCase().includes(keyword.toLowerCase()) ||
-          (post.content && post.content.toLowerCase().includes(keyword.toLowerCase()))
+          post.title.toLowerCase().includes(keyword) ||
+          (post.content && post.content.toLowerCase().includes(keyword)) ||
+          (post.summary && post.summary.toLowerCase().includes(keyword))
         );
 
         renderResults(results, keyword);
