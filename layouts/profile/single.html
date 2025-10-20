@@ -11,13 +11,13 @@
     <div class="profile-intro">
       <h1>Giới Thiệu & Kinh Nghiệm Nghề Nghiệp</h1>
       <p><strong>Trương Thị Tuyết Nhi</strong> – Sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong></p>
-      <p>Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật. Tôi cũng phát triển kỹ năng lập trình để hiểu sâu hơn về cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
+      <p>Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> – người kết nối giữa nghiệp vụ và kỹ thuật. Tôi cũng phát triển kỹ năng lập trình để hiểu sâu hơn về cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
     </div>
   </div>
 
   <div class="profile-content">
     <h2>Mục Tiêu Nghề Nghiệp</h2>
-    <ul>
+    <ul class="goals-list">
       <li>Phân tích, đặc tả và mô hình hóa yêu cầu nghiệp vụ.</li>
       <li>Làm cầu nối giữa kỹ thuật và khách hàng, đảm bảo sản phẩm đáp ứng đúng nhu cầu.</li>
       <li>Ứng dụng kiến thức lập trình <strong>(Python, JavaScript, Node.js, Express)</strong> hỗ trợ phân tích hệ thống.</li>
@@ -33,10 +33,10 @@
     </ul>
 
     <h2>Học Vấn & Chứng Chỉ</h2>
-    <ul>
+    <ul class="education-list">
       <li>Chuyên ngành: Hệ thống Thông tin – Sinh viên năm 4</li>
       <li>Chứng chỉ:
-        <ul>
+        <ul class="certifications">
           <li>Networking Basics</li>
           <li>JavaScript Essentials</li>
           <li>JavaScript Essentials 2</li>
@@ -45,7 +45,7 @@
     </ul>
 
     <h2>Dự Án Tiêu Biểu</h2>
-    <ul>
+    <ul class="projects-list">
       <li><strong>Quản Lý Startup:</strong> Hệ thống hỗ trợ quản lý nội bộ startup.</li>
       <li><strong>OmniMer EDU:</strong> Nền tảng quản lý trường học đa nền tảng.</li>
       <li><strong>Bến Xe Đồng Mới:</strong> Hệ thống tự động hóa quản lý vận hành bến xe.</li>
@@ -67,34 +67,34 @@
   max-width: 950px;
   margin: 0 auto;
   padding: 2rem;
-  line-height: 1.7;
-  font-size: 1.05rem;
+  line-height: 1.8; /* Tăng khoảng cách dòng cho rõ ràng */
+  font-size: 1.1rem; /* Tăng kích thước chữ cơ bản */
   color: #333;
 }
 
 .profile-header {
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: 2.5rem; /* Tăng khoảng cách giữa ảnh và nội dung */
+  margin-bottom: 3rem; /* Tăng khoảng cách dưới header */
   flex-wrap: wrap;
 }
 
 .profile-image-wrapper {
-  flex: 0 0 180px; /* Ảnh nhỏ gọn hơn */
+  flex: 0 0 200px; /* Tăng kích thước ảnh */
 }
 
 .profile-img {
   width: 100%;
   height: auto;
-  border-radius: 14px; /* ✅ Bo góc nhẹ */
+  border-radius: 15px;
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.35s ease; /* ✅ Hiệu ứng mượt */
+  transition: all 0.35s ease;
 }
 
 .profile-img:hover {
-  transform: scale(1.05); /* ✅ Phóng to nhẹ khi hover */
+  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -103,30 +103,58 @@
 }
 
 .profile-intro h1 {
-  margin: 0 0 0.5rem;
-  font-size: 1.9rem;
+  margin: 0 0 1rem; /* Tăng khoảng cách dưới tiêu đề chính */
+  font-size: 2rem; /* Tăng kích thước tiêu đề */
   color: #111;
+  font-weight: 700; /* Đậm hơn */
 }
 
 .profile-intro p {
   color: #555;
-  margin-top: 0.5rem;
+  margin: 0.75rem 0; /* Tăng khoảng cách giữa các đoạn */
 }
 
 .profile-content h2 {
-  border-bottom: 2px solid #eaeaea;
-  padding-bottom: 0.3rem;
-  margin-top: 2rem;
-  font-size: 1.4rem;
+  border-bottom: 2px solid #e0e0e0; /* Màu viền nhẹ nhàng */
+  padding-bottom: 0.5rem;
+  margin-top: 3rem; /* Tăng khoảng cách trên giữa các section */
+  font-size: 1.6rem; /* Tăng kích thước tiêu đề phụ */
   color: #222;
+  font-weight: 600;
+}
+
+.goals-list,
+.education-list,
+.projects-list,
+.contact-info {
+  list-style-type: disc; /* Sử dụng dấu đầu dòng cơ bản */
+  padding-left: 1.5rem; /* Tăng lề trái cho danh sách */
+  margin: 1rem 0; /* Tăng khoảng cách trên và dưới danh sách */
+}
+
+.goals-list li,
+.education-list li,
+.projects-list li,
+.contact-info li {
+  margin-bottom: 0.8rem; /* Tăng khoảng cách giữa các mục trong danh sách */
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem 1.5rem;
+  gap: 1rem 2rem; /* Tăng khoảng cách giữa các ô */
   list-style: none;
   padding-left: 0;
+  margin: 1rem 0;
+}
+
+.skills-grid li {
+  margin-bottom: 0.5rem;
+}
+
+.skills-grid strong {
+  color: #222;
+  font-weight: 600;
 }
 
 .contact-info a {
@@ -141,12 +169,18 @@
 @media (max-width: 768px) {
   .profile-header {
     flex-direction: column;
+    gap: 1.5rem;
   }
   .profile-image-wrapper {
     width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
   }
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+  .profile-content h2 {
+    margin-top: 2rem;
   }
 }
 </style>
