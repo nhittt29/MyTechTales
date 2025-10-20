@@ -36,7 +36,12 @@ theme = "PaperMod"
   layout = "cards"
   ShowPostsOnHome = false
   ShowCover = false
-  customCSS = ["/css/custom.css"]
+
+  # Thêm các file CSS tùy chỉnh
+  customCSS = [
+    "/css/custom.css",
+    "/css/profile.css"
+  ]
 
   # Cho phép hiển thị bài viết có ngày trong tương lai
   future = true
