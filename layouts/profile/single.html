@@ -1,23 +1,21 @@
 {{ define "main" }}
 <section class="profile-container">
   <div class="profile-header">
-    <img
-      src="https://nhittt29.github.io/MyTechTales/images/profile.jpg"
-      alt="Trương Thị Tuyết Nhi"
-      class="profile-img"
-    />
-    <div class="profile-title">
+    <div class="profile-image-wrapper">
+      <img
+        src="https://nhittt29.github.io/MyTechTales/images/profile.jpg"
+        alt="Trương Thị Tuyết Nhi"
+        class="profile-img"
+      />
+    </div>
+    <div class="profile-intro">
       <h1>Giới Thiệu & Kinh Nghiệm Nghề Nghiệp</h1>
       <p><strong>Trương Thị Tuyết Nhi</strong> – Sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong></p>
+      <p>Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật. Tôi cũng phát triển kỹ năng lập trình để hiểu sâu hơn về cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
     </div>
   </div>
 
   <div class="profile-content">
-    <h2>Giới Thiệu</h2>
-    <p>Tôi là <strong>Trương Thị Tuyết Nhi</strong>, sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong>.</p>
-    <p>Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật.</p>
-    <p>Song song đó, tôi phát triển kỹ năng lập trình để hiểu sâu hơn cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
-
     <h2>Mục Tiêu Nghề Nghiệp</h2>
     <ul>
       <li>Phân tích, đặc tả và mô hình hóa yêu cầu nghiệp vụ.</li>
@@ -27,7 +25,7 @@
     </ul>
 
     <h2>Kỹ Năng</h2>
-    <ul>
+    <ul class="skills-grid">
       <li><strong>Ngôn ngữ:</strong> TypeScript, Python, JavaScript</li>
       <li><strong>Backend:</strong> Node.js, Express</li>
       <li><strong>Phân tích nghiệp vụ:</strong> Use Case, BPMN, mô hình quy trình</li>
@@ -54,7 +52,7 @@
     </ul>
 
     <h2>Liên Hệ</h2>
-    <ul>
+    <ul class="contact-info">
       <li><strong>Email:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></li>
       <li><strong>GitHub:</strong> <a href="https://github.com/nhittt29">github.com/nhittt29</a></li>
       <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nhittt">linkedin.com/in/nhittt</a></li>
@@ -66,39 +64,84 @@
 
 <style>
 .profile-container {
-  max-width: 850px;
+  max-width: 950px;
   margin: 0 auto;
   padding: 2rem;
   line-height: 1.7;
   font-size: 1.05rem;
+  color: #333;
 }
+
 .profile-header {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: flex-start;
+  gap: 2rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
-.profile-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+.profile-image-wrapper {
+  flex: 0 0 250px;
 }
-.profile-title h1 { margin: 0; font-size: 1.8rem; }
-.profile-title p { margin-top: 0.3rem; color: #555; }
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-intro {
+  flex: 1;
+}
+
+.profile-intro h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.9rem;
+  color: #111;
+}
+
+.profile-intro p {
+  color: #555;
+  margin-top: 0.5rem;
+}
+
 .profile-content h2 {
   border-bottom: 2px solid #eaeaea;
   padding-bottom: 0.3rem;
-  margin-top: 1.8rem;
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #222;
 }
-.profile-content a { color: #007bff; text-decoration: none; }
-.profile-content a:hover { text-decoration: underline; }
-@media (max-width: 600px) {
-  .profile-header { flex-direction: column; text-align: center; }
-  .profile-img { width: 110px; height: 110px; }
-  .profile-title h1 { font-size: 1.5rem; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem 1.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+  }
+  .profile-image-wrapper {
+    width: 100%;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 {{ end }}
