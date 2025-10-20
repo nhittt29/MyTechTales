@@ -81,14 +81,21 @@
 }
 
 .profile-image-wrapper {
-  flex: 0 0 180px; /* ✅ Giảm kích thước ảnh từ 250px → 180px */
+  flex: 0 0 180px; /* Ảnh nhỏ gọn hơn */
 }
 
 .profile-img {
   width: 100%;
   height: auto;
+  border-radius: 14px; /* ✅ Bo góc nhẹ */
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s ease; /* ✅ Hiệu ứng mượt */
+}
+
+.profile-img:hover {
+  transform: scale(1.05); /* ✅ Phóng to nhẹ khi hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .profile-intro {
