@@ -7,18 +7,64 @@
       class="profile-img"
     />
     <div class="profile-title">
-      <h1>{{ .Title }}</h1>
+      <h1>Giới Thiệu & Kinh Nghiệm Nghề Nghiệp</h1>
       <p><strong>Trương Thị Tuyết Nhi</strong> – Sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong></p>
     </div>
   </div>
 
   <div class="profile-content">
-    {{ .Content }}
+    <h2>Giới Thiệu</h2>
+    <p>Tôi là <strong>Trương Thị Tuyết Nhi</strong>, sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong>.</p>
+    <p>Với niềm yêu thích công nghệ và khả năng tư duy logic, tôi đang theo đuổi hướng <strong>Business Analyst (BA)</strong> — người kết nối giữa nghiệp vụ và kỹ thuật.</p>
+    <p>Song song đó, tôi phát triển kỹ năng lập trình để hiểu sâu hơn cách hệ thống vận hành và đề xuất các giải pháp hiệu quả cho doanh nghiệp.</p>
+
+    <h2>Mục Tiêu Nghề Nghiệp</h2>
+    <ul>
+      <li>Phân tích, đặc tả và mô hình hóa yêu cầu nghiệp vụ.</li>
+      <li>Làm cầu nối giữa kỹ thuật và khách hàng, đảm bảo sản phẩm đáp ứng đúng nhu cầu.</li>
+      <li>Ứng dụng kiến thức lập trình <strong>(Python, JavaScript, Node.js, Express)</strong> hỗ trợ phân tích hệ thống.</li>
+      <li>Thành thạo CSDL: <strong>MySQL, SQL Server, PostgreSQL, MongoDB</strong>.</li>
+    </ul>
+
+    <h2>Kỹ Năng</h2>
+    <ul>
+      <li><strong>Ngôn ngữ:</strong> TypeScript, Python, JavaScript</li>
+      <li><strong>Backend:</strong> Node.js, Express</li>
+      <li><strong>Phân tích nghiệp vụ:</strong> Use Case, BPMN, mô hình quy trình</li>
+      <li><strong>Công cụ:</strong> Git, Notion, Figma, Trello</li>
+    </ul>
+
+    <h2>Học Vấn & Chứng Chỉ</h2>
+    <ul>
+      <li>Chuyên ngành: Hệ thống Thông tin – Sinh viên năm 4</li>
+      <li>Chứng chỉ:
+        <ul>
+          <li>Networking Basics</li>
+          <li>JavaScript Essentials</li>
+          <li>JavaScript Essentials 2</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2>Dự Án Tiêu Biểu</h2>
+    <ul>
+      <li><strong>Quản Lý Startup:</strong> Hệ thống hỗ trợ quản lý nội bộ startup.</li>
+      <li><strong>OmniMer EDU:</strong> Nền tảng quản lý trường học đa nền tảng.</li>
+      <li><strong>Bến Xe Đồng Mới:</strong> Hệ thống tự động hóa quản lý vận hành bến xe.</li>
+    </ul>
+
+    <h2>Liên Hệ</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/nhittt29">github.com/nhittt29</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/nhittt">linkedin.com/in/nhittt</a></li>
+      <li><strong>Facebook:</strong> <a href="https://facebook.com/nhittt29">facebook.com/nhittt29</a></li>
+      <li><strong>Instagram:</strong> <a href="https://instagram.com/nhittt29">instagram.com/nhittt29</a></li>
+    </ul>
   </div>
 </section>
 
 <style>
-/* Tổng thể */
 .profile-container {
   max-width: 850px;
   margin: 0 auto;
@@ -26,8 +72,6 @@
   line-height: 1.7;
   font-size: 1.05rem;
 }
-
-/* Phần header */
 .profile-header {
   display: flex;
   align-items: center;
@@ -35,8 +79,6 @@
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
-
-/* Ảnh đại diện */
 .profile-img {
   width: 130px;
   height: 130px;
@@ -44,51 +86,19 @@
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-
-/* Tiêu đề */
-.profile-title h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-.profile-title p {
-  margin-top: 0.3rem;
-  color: #555;
-}
-
-/* Nội dung markdown */
+.profile-title h1 { margin: 0; font-size: 1.8rem; }
+.profile-title p { margin-top: 0.3rem; color: #555; }
 .profile-content h2 {
   border-bottom: 2px solid #eaeaea;
   padding-bottom: 0.3rem;
   margin-top: 1.8rem;
 }
-
-.profile-content ul {
-  padding-left: 1.5rem;
-}
-
-.profile-content a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.profile-content a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
+.profile-content a { color: #007bff; text-decoration: none; }
+.profile-content a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
-  .profile-header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .profile-img {
-    width: 110px;
-    height: 110px;
-  }
-  .profile-title h1 {
-    font-size: 1.5rem;
-  }
+  .profile-header { flex-direction: column; text-align: center; }
+  .profile-img { width: 110px; height: 110px; }
+  .profile-title h1 { font-size: 1.5rem; }
 }
 </style>
 {{ end }}
