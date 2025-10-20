@@ -1,0 +1,94 @@
+{{ define "main" }}
+<section class="profile-container">
+  <div class="profile-header">
+    <img
+      src="https://nhittt29.github.io/MyTechTales/images/profile.jpg"
+      alt="Trương Thị Tuyết Nhi"
+      class="profile-img"
+    />
+    <div class="profile-title">
+      <h1>{{ .Title }}</h1>
+      <p><strong>Trương Thị Tuyết Nhi</strong> – Sinh viên năm 4 ngành <strong>Hệ thống Thông tin</strong></p>
+    </div>
+  </div>
+
+  <div class="profile-content">
+    {{ .Content }}
+  </div>
+</section>
+
+<style>
+/* Tổng thể */
+.profile-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Phần header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Ảnh đại diện */
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Tiêu đề */
+.profile-title h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.profile-title p {
+  margin-top: 0.3rem;
+  color: #555;
+}
+
+/* Nội dung markdown */
+.profile-content h2 {
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 0.3rem;
+  margin-top: 1.8rem;
+}
+
+.profile-content ul {
+  padding-left: 1.5rem;
+}
+
+.profile-content a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.profile-content a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-img {
+    width: 110px;
+    height: 110px;
+  }
+  .profile-title h1 {
+    font-size: 1.5rem;
+  }
+}
+</style>
+{{ end }}

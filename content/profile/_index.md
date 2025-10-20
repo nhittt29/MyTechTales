@@ -4,14 +4,6 @@ date: 2025-10-01T15:03:00+07:00
 draft: false
 ---
 
-![Trương Thị Tuyết Nhi](https://nhittt29.github.io/MyTechTales/images/profile.jpg){.profile-float}
-
-### Trương Thị Tuyết Nhi
-
-**Sinh viên năm 4** – Ngành **Hệ thống Thông tin**
-
----
-
 ## Giới Thiệu
 
 Tôi là **Trương Thị Tuyết Nhi**, sinh viên năm 4 ngành **Hệ thống Thông tin**.  
