@@ -1,34 +1,259 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Lập trình đa tuyến | My Tech Tales</title><meta name=keywords content="Java,Multithreading,Mạng"><meta name=description content="Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử lý nhiều kết nối mạng cùng lúc trong Java, cập nhật ngày 16/10/2025."><meta name=author content><link rel=canonical href=https://nhittt29.github.io/MyTechTales/blog/java/multithreading/><link crossorigin=anonymous href=/MyTechTales/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as=style><link rel=icon href=https://nhittt29.github.io/MyTechTales/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://nhittt29.github.io/MyTechTales/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://nhittt29.github.io/MyTechTales/favicon-32x32.png><link rel=apple-touch-icon href=https://nhittt29.github.io/MyTechTales/apple-touch-icon.png><link rel=mask-icon href=https://nhittt29.github.io/MyTechTales/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://nhittt29.github.io/MyTechTales/blog/java/multithreading/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://nhittt29.github.io/MyTechTales/blog/java/multithreading/"><meta property="og:site_name" content="My Tech Tales"><meta property="og:title" content="Lập trình đa tuyến"><meta property="og:description" content="Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử lý nhiều kết nối mạng cùng lúc trong Java, cập nhật ngày 16/10/2025."><meta property="og:locale" content="vi"><meta property="og:type" content="article"><meta property="article:section" content="blog"><meta property="article:published_time" content="2025-10-16T00:00:00+00:00"><meta property="article:modified_time" content="2025-10-16T00:00:00+00:00"><meta property="article:tag" content="Java"><meta property="article:tag" content="Multithreading"><meta property="article:tag" content="Mạng"><meta name=twitter:card content="summary"><meta name=twitter:title content="Lập trình đa tuyến"><meta name=twitter:description content="Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử lý nhiều kết nối mạng cùng lúc trong Java, cập nhật ngày 16/10/2025."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Blogs","item":"https://nhittt29.github.io/MyTechTales/blog/"},{"@type":"ListItem","position":2,"name":"Lập trình Java","item":"https://nhittt29.github.io/MyTechTales/blog/java/"},{"@type":"ListItem","position":3,"name":"Lập trình đa tuyến","item":"https://nhittt29.github.io/MyTechTales/blog/java/multithreading/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Lập trình đa tuyến","name":"Lập trình đa tuyến","description":"Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử lý nhiều kết nối mạng cùng lúc trong Java, cập nhật ngày 16/10/2025.","keywords":["Java","Multithreading","Mạng"],"articleBody":"1. Giới thiệu Đa tuyến (multithreading) là kỹ thuật cho phép một chương trình Java xử lý nhiều tác vụ đồng thời, rất quan trọng trong lập trình mạng.\nVí dụ, một server cần phục vụ hàng trăm client cùng lúc mà không bị tắc nghẽn.\nBài viết này, được cập nhật vào sáng ngày 16/10/2025 lúc 09:23 AM +07, sẽ giải thích cách triển khai đa tuyến, ưu điểm, thách thức, và ứng dụng trong mạng.\n2. Vai trò của đa tuyến trong lập trình mạng Xử lý đa kết nối: Mỗi client được gán một thread riêng để xử lý độc lập. Tăng hiệu suất: Server không phải chờ đợi, đáp ứng nhanh hơn với nhiều yêu cầu. Ứng dụng thời gian thực: Hỗ trợ chat, game online, hoặc giám sát mạng cần phản hồi tức thì. Mở rộng quy mô: Dễ dàng nâng cấp server để phục vụ lượng lớn người dùng. 3. Cách thực hiện đa tuyến trong Java Java cung cấp nhiều cách để triển khai đa tuyến, tùy thuộc vào yêu cầu ứng dụng:\nSử dụng Thread: Tạo thread mới cho mỗi tác vụ (kéo dài vòng đời thread). Runnable: Triển khai interface Runnable để định nghĩa tác vụ, linh hoạt hơn Thread. ThreadPool: Sử dụng ExecutorService để quản lý số lượng thread, tránh quá tải hệ thống. Callable/Future: Hỗ trợ trả về kết quả từ thread, phù hợp cho tác vụ phức tạp. 4. Ưu điểm và thách thức Ưu điểm: Tối ưu hóa tài nguyên CPU bằng cách chạy song song. Cải thiện trải nghiệm người dùng với phản hồi nhanh. Thách thức: Đồng bộ hóa: Nhiều thread truy cập chung dữ liệu có thể gây xung đột (sử dụng synchronized). Quản lý: Số lượng thread lớn tiêu tốn bộ nhớ, cần giới hạn bằng ThreadPool. Deadlock: Nguy cơ xảy ra khi thread chờ nhau vô thời hạn. 5. Ứng dụng thực tế Server chat đa người dùng: Mỗi người dùng chạy trên thread riêng, hỗ trợ tin nhắn nhóm. Dịch vụ mạng thời gian thực: Cập nhật dữ liệu liên tục như bảng giá chứng khoán. Game online: Đồng bộ trạng thái giữa người chơi qua nhiều thread. Hệ thống giám sát: Theo dõi lưu lượng mạng trên nhiều kết nối cùng lúc. 6. Ví dụ minh họa Dưới đây là ví dụ server đa tuyến sử dụng ThreadPool để xử lý nhiều client:\nimport java.io.*; import java.net.*; import java.util.concurrent.*; public class MultiThreadServer { public static void main(String[] args) throws IOException { ServerSocket server = new ServerSocket(1234); System.out.println(\"Server đa tuyến đang lắng nghe trên cổng 1234, cập nhật 16/10/2025 09:23 AM +07...\"); // Tạo ThreadPool với 10 thread ExecutorService executor = Executors.newFixedThreadPool(10); while (true) { Socket client = server.accept(); System.out.println(\"Kết nối mới từ: \" + client.getInetAddress()); executor.execute(() -\u003e { try (BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream())); PrintWriter out = new PrintWriter(client.getOutputStream(), true)) { String message; while ((message = in.readLine()) != null) { System.out.println(\"Nhận từ \" + client.getInetAddress() + \": \" + message); out.println(\"Echo: \" + message.toUpperCase()); } } catch (IOException e) { System.out.println(\"Lỗi thread: \" + e.getMessage()); } }); } } } ","wordCount":"521","inLanguage":"en","datePublished":"2025-10-16T00:00:00Z","dateModified":"2025-10-16T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://nhittt29.github.io/MyTechTales/blog/java/multithreading/"},"publisher":{"@type":"Organization","name":"My Tech Tales","logo":{"@type":"ImageObject","url":"https://nhittt29.github.io/MyTechTales/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://nhittt29.github.io/MyTechTales/ accesskey=h title="My Tech Tales (Alt + H)">My Tech Tales</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
-<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://nhittt29.github.io/MyTechTales/ title=Home><span>Home</span></a></li><li><a href=https://nhittt29.github.io/MyTechTales/blog/ title=Blog><span>Blog</span></a></li><li><a href=https://nhittt29.github.io/MyTechTales/profile/ title=Profile><span>Profile</span></a></li><li><a href=https://nhittt29.github.io/MyTechTales/search/ title="Tìm kiếm"><span>Tìm kiếm</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://nhittt29.github.io/MyTechTales/>Home</a>&nbsp;»&nbsp;<a href=https://nhittt29.github.io/MyTechTales/blog/>Blogs</a>&nbsp;»&nbsp;<a href=https://nhittt29.github.io/MyTechTales/blog/java/>Lập trình Java</a></div><h1 class="post-title entry-hint-parent">Lập trình đa tuyến</h1><div class=post-meta><span title='2025-10-16 00:00:00 +0000 UTC'>October 16, 2025</span>&nbsp;·&nbsp;<span>3 min</span></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#1-gi%e1%bb%9bi-thi%e1%bb%87u aria-label="1. Giới thiệu">1. Giới thiệu</a></li><li><a href=#2-vai-tr%c3%b2-c%e1%bb%a7a-%c4%91a-tuy%e1%ba%bfn-trong-l%e1%ba%adp-tr%c3%acnh-m%e1%ba%a1ng aria-label="2. Vai trò của đa tuyến trong lập trình mạng">2. Vai trò của đa tuyến trong lập trình mạng</a></li><li><a href=#3-c%c3%a1ch-th%e1%bb%b1c-hi%e1%bb%87n-%c4%91a-tuy%e1%ba%bfn-trong-java aria-label="3. Cách thực hiện đa tuyến trong Java">3. Cách thực hiện đa tuyến trong Java</a></li><li><a href=#4-%c6%b0u-%c4%91i%e1%bb%83m-v%c3%a0-th%c3%a1ch-th%e1%bb%a9c aria-label="4. Ưu điểm và thách thức">4. Ưu điểm và thách thức</a></li><li><a href=#5-%e1%bb%a9ng-d%e1%bb%a5ng-th%e1%bb%b1c-t%e1%ba%bf aria-label="5. Ứng dụng thực tế">5. Ứng dụng thực tế</a></li><li><a href=#6-v%c3%ad-d%e1%bb%a5-minh-h%e1%bb%8da aria-label="6. Ví dụ minh họa">6. Ví dụ minh họa</a></li></ul></div></details></div><div class=post-content><h2 id=1-giới-thiệu>1. Giới thiệu<a hidden class=anchor aria-hidden=true href=#1-giới-thiệu>#</a></h2><p>Đa tuyến (multithreading) là kỹ thuật cho phép một chương trình Java xử lý nhiều tác vụ đồng thời, rất quan trọng trong lập trình mạng.<br>Ví dụ, một server cần phục vụ hàng trăm client cùng lúc mà không bị tắc nghẽn.<br>Bài viết này, được cập nhật vào sáng ngày 16/10/2025 lúc 09:23 AM +07, sẽ giải thích cách triển khai đa tuyến, ưu điểm, thách thức, và ứng dụng trong mạng.</p><p><img alt=Multithreading loading=lazy src=https://nhittt29.github.io/MyTechTales/images/multithreading.jpg title="Đa tuyến trong mạng"></p><h2 id=2-vai-trò-của-đa-tuyến-trong-lập-trình-mạng>2. Vai trò của đa tuyến trong lập trình mạng<a hidden class=anchor aria-hidden=true href=#2-vai-trò-của-đa-tuyến-trong-lập-trình-mạng>#</a></h2><ul><li><strong>Xử lý đa kết nối</strong>: Mỗi client được gán một thread riêng để xử lý độc lập.</li><li><strong>Tăng hiệu suất</strong>: Server không phải chờ đợi, đáp ứng nhanh hơn với nhiều yêu cầu.</li><li><strong>Ứng dụng thời gian thực</strong>: Hỗ trợ chat, game online, hoặc giám sát mạng cần phản hồi tức thì.</li><li><strong>Mở rộng quy mô</strong>: Dễ dàng nâng cấp server để phục vụ lượng lớn người dùng.</li></ul><h2 id=3-cách-thực-hiện-đa-tuyến-trong-java>3. Cách thực hiện đa tuyến trong Java<a hidden class=anchor aria-hidden=true href=#3-cách-thực-hiện-đa-tuyến-trong-java>#</a></h2><p>Java cung cấp nhiều cách để triển khai đa tuyến, tùy thuộc vào yêu cầu ứng dụng:</p><ul><li><strong>Sử dụng Thread</strong>: Tạo thread mới cho mỗi tác vụ (kéo dài vòng đời thread).</li><li><strong>Runnable</strong>: Triển khai interface <code>Runnable</code> để định nghĩa tác vụ, linh hoạt hơn Thread.</li><li><strong>ThreadPool</strong>: Sử dụng <code>ExecutorService</code> để quản lý số lượng thread, tránh quá tải hệ thống.</li><li><strong>Callable/Future</strong>: Hỗ trợ trả về kết quả từ thread, phù hợp cho tác vụ phức tạp.</li></ul><h2 id=4-ưu-điểm-và-thách-thức>4. Ưu điểm và thách thức<a hidden class=anchor aria-hidden=true href=#4-ưu-điểm-và-thách-thức>#</a></h2><ul><li><strong>Ưu điểm</strong>:<ul><li>Tối ưu hóa tài nguyên CPU bằng cách chạy song song.</li><li>Cải thiện trải nghiệm người dùng với phản hồi nhanh.</li></ul></li><li><strong>Thách thức</strong>:<ul><li><strong>Đồng bộ hóa</strong>: Nhiều thread truy cập chung dữ liệu có thể gây xung đột (sử dụng <code>synchronized</code>).</li><li><strong>Quản lý</strong>: Số lượng thread lớn tiêu tốn bộ nhớ, cần giới hạn bằng ThreadPool.</li><li><strong>Deadlock</strong>: Nguy cơ xảy ra khi thread chờ nhau vô thời hạn.</li></ul></li></ul><h2 id=5-ứng-dụng-thực-tế>5. Ứng dụng thực tế<a hidden class=anchor aria-hidden=true href=#5-ứng-dụng-thực-tế>#</a></h2><ul><li><strong>Server chat đa người dùng</strong>: Mỗi người dùng chạy trên thread riêng, hỗ trợ tin nhắn nhóm.</li><li><strong>Dịch vụ mạng thời gian thực</strong>: Cập nhật dữ liệu liên tục như bảng giá chứng khoán.</li><li><strong>Game online</strong>: Đồng bộ trạng thái giữa người chơi qua nhiều thread.</li><li><strong>Hệ thống giám sát</strong>: Theo dõi lưu lượng mạng trên nhiều kết nối cùng lúc.</li></ul><h2 id=6-ví-dụ-minh-họa>6. Ví dụ minh họa<a hidden class=anchor aria-hidden=true href=#6-ví-dụ-minh-họa>#</a></h2><p>Dưới đây là ví dụ server đa tuyến sử dụng ThreadPool để xử lý nhiều client:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> java.io.*;
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.net.*;
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.concurrent.*;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>MultiThreadServer</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>(String<span style=color:#f92672>[]</span> args) <span style=color:#66d9ef>throws</span> IOException {
-</span></span><span style=display:flex><span>        ServerSocket server <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ServerSocket(1234);
-</span></span><span style=display:flex><span>        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Server đa tuyến đang lắng nghe trên cổng 1234, cập nhật 16/10/2025 09:23 AM +07...&#34;</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#75715e>// Tạo ThreadPool với 10 thread</span>
-</span></span><span style=display:flex><span>        ExecutorService executor <span style=color:#f92672>=</span> Executors.<span style=color:#a6e22e>newFixedThreadPool</span>(10);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> (<span style=color:#66d9ef>true</span>) {
-</span></span><span style=display:flex><span>            Socket client <span style=color:#f92672>=</span> server.<span style=color:#a6e22e>accept</span>();
-</span></span><span style=display:flex><span>            System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Kết nối mới từ: &#34;</span> <span style=color:#f92672>+</span> client.<span style=color:#a6e22e>getInetAddress</span>());
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            executor.<span style=color:#a6e22e>execute</span>(() <span style=color:#f92672>-&gt;</span> {
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>try</span> (BufferedReader in <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedReader(<span style=color:#66d9ef>new</span> InputStreamReader(client.<span style=color:#a6e22e>getInputStream</span>()));
-</span></span><span style=display:flex><span>                     PrintWriter out <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> PrintWriter(client.<span style=color:#a6e22e>getOutputStream</span>(), <span style=color:#66d9ef>true</span>)) {
-</span></span><span style=display:flex><span>                    String message;
-</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>while</span> ((message <span style=color:#f92672>=</span> in.<span style=color:#a6e22e>readLine</span>()) <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
-</span></span><span style=display:flex><span>                        System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Nhận từ &#34;</span> <span style=color:#f92672>+</span> client.<span style=color:#a6e22e>getInetAddress</span>() <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;: &#34;</span> <span style=color:#f92672>+</span> message);
-</span></span><span style=display:flex><span>                        out.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Echo: &#34;</span> <span style=color:#f92672>+</span> message.<span style=color:#a6e22e>toUpperCase</span>());
-</span></span><span style=display:flex><span>                    }
-</span></span><span style=display:flex><span>                } <span style=color:#66d9ef>catch</span> (IOException e) {
-</span></span><span style=display:flex><span>                    System.<span style=color:#a6e22e>out</span>.<span style=color:#a6e22e>println</span>(<span style=color:#e6db74>&#34;Lỗi thread: &#34;</span> <span style=color:#f92672>+</span> e.<span style=color:#a6e22e>getMessage</span>());
-</span></span><span style=display:flex><span>                }
-</span></span><span style=display:flex><span>            });
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://nhittt29.github.io/MyTechTales/tags/java/>Java</a></li><li><a href=https://nhittt29.github.io/MyTechTales/tags/multithreading/>Multithreading</a></li><li><a href=https://nhittt29.github.io/MyTechTales/tags/m%E1%BA%A1ng/>Mạng</a></li></ul><nav class=paginav><a class=next href=https://nhittt29.github.io/MyTechTales/blog/java/tcp-socket/><span class=title>Next »</span><br><span>Lập trình socket cho giao thức TCP</span></a></nav></footer></article></main></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/MyTechTales/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=MyTechTales/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Lập trình đa tuyến | My Tech Tales</title>
+<meta name="keywords" content="Java, Multithreading, Mạng">
+<meta name="description" content="Tìm hiểu cách sử dụng đa tuyến (multithreading) để xử lý nhiều kết nối mạng cùng lúc trong Java, cập nhật ngày 16/10/2025.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/MyTechTales/blog/java/multithreading/">
+<link crossorigin="anonymous" href="/MyTechTales/assets/css/stylesheet.a482bf00fa5c046040ef7973ad5fdf5657890cacb596c93f1382f664ca542074.css" integrity="sha256-pIK/APpcBGBA73lzrV/fVleJDKy1lsk/E4L2ZMpUIHQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/MyTechTales/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/MyTechTales/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/MyTechTales/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/MyTechTales/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/MyTechTales/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/MyTechTales/blog/java/multithreading/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/MyTechTales/" accesskey="h" title="My Tech Tales (Alt + H)">My Tech Tales</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/MyTechTales/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/MyTechTales/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/MyTechTales/profile/" title="Profile">
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/MyTechTales/search/" title="Tìm kiếm">
+                    <span>Tìm kiếm</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/MyTechTales/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/">Blogs</a>&nbsp;»&nbsp;<a href="http://localhost:1313/MyTechTales/blog/java/">Lập trình Java</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Lập trình đa tuyến
+    </h1>
+    <div class="post-meta"><span title='2025-10-16 00:00:00 +0000 UTC'>October 16, 2025</span>&nbsp;·&nbsp;<span>3 min</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-gi%e1%bb%9bi-thi%e1%bb%87u" aria-label="1. Giới thiệu">1. Giới thiệu</a></li>
+                <li>
+                    <a href="#2-vai-tr%c3%b2-c%e1%bb%a7a-%c4%91a-tuy%e1%ba%bfn-trong-l%e1%ba%adp-tr%c3%acnh-m%e1%ba%a1ng" aria-label="2. Vai trò của đa tuyến trong lập trình mạng">2. Vai trò của đa tuyến trong lập trình mạng</a></li>
+                <li>
+                    <a href="#3-c%c3%a1ch-th%e1%bb%b1c-hi%e1%bb%87n-%c4%91a-tuy%e1%ba%bfn-trong-java" aria-label="3. Cách thực hiện đa tuyến trong Java">3. Cách thực hiện đa tuyến trong Java</a></li>
+                <li>
+                    <a href="#4-%c6%b0u-%c4%91i%e1%bb%83m-v%c3%a0-th%c3%a1ch-th%e1%bb%a9c" aria-label="4. Ưu điểm và thách thức">4. Ưu điểm và thách thức</a></li>
+                <li>
+                    <a href="#5-%e1%bb%a9ng-d%e1%bb%a5ng-th%e1%bb%b1c-t%e1%ba%bf" aria-label="5. Ứng dụng thực tế">5. Ứng dụng thực tế</a></li>
+                <li>
+                    <a href="#6-v%c3%ad-d%e1%bb%a5-minh-h%e1%bb%8da" aria-label="6. Ví dụ minh họa">6. Ví dụ minh họa</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="1-giới-thiệu">1. Giới thiệu<a hidden class="anchor" aria-hidden="true" href="#1-giới-thiệu">#</a></h2>
+<p>Đa tuyến (multithreading) là kỹ thuật cho phép một chương trình Java xử lý nhiều tác vụ đồng thời, rất quan trọng trong lập trình mạng.<br>
+Ví dụ, một server cần phục vụ hàng trăm client cùng lúc mà không bị tắc nghẽn.<br>
+Bài viết này, được cập nhật vào sáng ngày 16/10/2025 lúc 09:23 AM +07, sẽ giải thích cách triển khai đa tuyến, ưu điểm, thách thức, và ứng dụng trong mạng.</p>
+<p><img alt="Multithreading" loading="lazy" src="https://nhittt29.github.io/MyTechTales/images/multithreading.jpg" title="Đa tuyến trong mạng"></p>
+<h2 id="2-vai-trò-của-đa-tuyến-trong-lập-trình-mạng">2. Vai trò của đa tuyến trong lập trình mạng<a hidden class="anchor" aria-hidden="true" href="#2-vai-trò-của-đa-tuyến-trong-lập-trình-mạng">#</a></h2>
+<ul>
+<li><strong>Xử lý đa kết nối</strong>: Mỗi client được gán một thread riêng để xử lý độc lập.</li>
+<li><strong>Tăng hiệu suất</strong>: Server không phải chờ đợi, đáp ứng nhanh hơn với nhiều yêu cầu.</li>
+<li><strong>Ứng dụng thời gian thực</strong>: Hỗ trợ chat, game online, hoặc giám sát mạng cần phản hồi tức thì.</li>
+<li><strong>Mở rộng quy mô</strong>: Dễ dàng nâng cấp server để phục vụ lượng lớn người dùng.</li>
+</ul>
+<h2 id="3-cách-thực-hiện-đa-tuyến-trong-java">3. Cách thực hiện đa tuyến trong Java<a hidden class="anchor" aria-hidden="true" href="#3-cách-thực-hiện-đa-tuyến-trong-java">#</a></h2>
+<p>Java cung cấp nhiều cách để triển khai đa tuyến, tùy thuộc vào yêu cầu ứng dụng:</p>
+<ul>
+<li><strong>Sử dụng Thread</strong>: Tạo thread mới cho mỗi tác vụ (kéo dài vòng đời thread).</li>
+<li><strong>Runnable</strong>: Triển khai interface <code>Runnable</code> để định nghĩa tác vụ, linh hoạt hơn Thread.</li>
+<li><strong>ThreadPool</strong>: Sử dụng <code>ExecutorService</code> để quản lý số lượng thread, tránh quá tải hệ thống.</li>
+<li><strong>Callable/Future</strong>: Hỗ trợ trả về kết quả từ thread, phù hợp cho tác vụ phức tạp.</li>
+</ul>
+<h2 id="4-ưu-điểm-và-thách-thức">4. Ưu điểm và thách thức<a hidden class="anchor" aria-hidden="true" href="#4-ưu-điểm-và-thách-thức">#</a></h2>
+<ul>
+<li><strong>Ưu điểm</strong>:
+<ul>
+<li>Tối ưu hóa tài nguyên CPU bằng cách chạy song song.</li>
+<li>Cải thiện trải nghiệm người dùng với phản hồi nhanh.</li>
+</ul>
+</li>
+<li><strong>Thách thức</strong>:
+<ul>
+<li><strong>Đồng bộ hóa</strong>: Nhiều thread truy cập chung dữ liệu có thể gây xung đột (sử dụng <code>synchronized</code>).</li>
+<li><strong>Quản lý</strong>: Số lượng thread lớn tiêu tốn bộ nhớ, cần giới hạn bằng ThreadPool.</li>
+<li><strong>Deadlock</strong>: Nguy cơ xảy ra khi thread chờ nhau vô thời hạn.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-ứng-dụng-thực-tế">5. Ứng dụng thực tế<a hidden class="anchor" aria-hidden="true" href="#5-ứng-dụng-thực-tế">#</a></h2>
+<ul>
+<li><strong>Server chat đa người dùng</strong>: Mỗi người dùng chạy trên thread riêng, hỗ trợ tin nhắn nhóm.</li>
+<li><strong>Dịch vụ mạng thời gian thực</strong>: Cập nhật dữ liệu liên tục như bảng giá chứng khoán.</li>
+<li><strong>Game online</strong>: Đồng bộ trạng thái giữa người chơi qua nhiều thread.</li>
+<li><strong>Hệ thống giám sát</strong>: Theo dõi lưu lượng mạng trên nhiều kết nối cùng lúc.</li>
+</ul>
+<h2 id="6-ví-dụ-minh-họa">6. Ví dụ minh họa<a hidden class="anchor" aria-hidden="true" href="#6-ví-dụ-minh-họa">#</a></h2>
+<p>Dưới đây là ví dụ server đa tuyến sử dụng ThreadPool để xử lý nhiều client:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.concurrent.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MultiThreadServer</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> IOException {
+</span></span><span style="display:flex;"><span>        ServerSocket server <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServerSocket(1234);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Server đa tuyến đang lắng nghe trên cổng 1234, cập nhật 16/10/2025 09:23 AM +07...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Tạo ThreadPool với 10 thread</span>
+</span></span><span style="display:flex;"><span>        ExecutorService executor <span style="color:#f92672">=</span> Executors.<span style="color:#a6e22e">newFixedThreadPool</span>(10);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>            Socket client <span style="color:#f92672">=</span> server.<span style="color:#a6e22e">accept</span>();
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Kết nối mới từ: &#34;</span> <span style="color:#f92672">+</span> client.<span style="color:#a6e22e">getInetAddress</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            executor.<span style="color:#a6e22e">execute</span>(() <span style="color:#f92672">-&gt;</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">try</span> (BufferedReader in <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedReader(<span style="color:#66d9ef">new</span> InputStreamReader(client.<span style="color:#a6e22e">getInputStream</span>()));
+</span></span><span style="display:flex;"><span>                     PrintWriter out <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PrintWriter(client.<span style="color:#a6e22e">getOutputStream</span>(), <span style="color:#66d9ef">true</span>)) {
+</span></span><span style="display:flex;"><span>                    String message;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">while</span> ((message <span style="color:#f92672">=</span> in.<span style="color:#a6e22e">readLine</span>()) <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>                        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Nhận từ &#34;</span> <span style="color:#f92672">+</span> client.<span style="color:#a6e22e">getInetAddress</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> message);
+</span></span><span style="display:flex;"><span>                        out.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Echo: &#34;</span> <span style="color:#f92672">+</span> message.<span style="color:#a6e22e">toUpperCase</span>());
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                } <span style="color:#66d9ef">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>                    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Lỗi thread: &#34;</span> <span style="color:#f92672">+</span> e.<span style="color:#a6e22e">getMessage</span>());
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/MyTechTales/tags/java/">Java</a></li>
+      <li><a href="http://localhost:1313/MyTechTales/tags/multithreading/">Multithreading</a></li>
+      <li><a href="http://localhost:1313/MyTechTales/tags/m%E1%BA%A1ng/">Mạng</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/MyTechTales/blog/java/tcp-socket/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Lập trình socket cho giao thức TCP</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+</body>
+
+</html>
