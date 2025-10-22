@@ -31,11 +31,11 @@
             Bạn sẽ khám phá cách các hệ thống <strong>trao đổi dữ liệu, giao tiếp và vận hành</strong> hiệu quả.
           </p>
           <ul>
-            <li>🔹 Lập trình Java cơ bản và đa tuyến</li>
-            <li>🔹 Quản lý socket TCP và luồng I/O</li>
-            <li>🔹 Dịch vụ kết nối mạng với Java</li>
-            <li>🔹 JavaScript với API, WebSocket, JSON</li>
-            <li>🔹 Xây dựng server mạng bằng Node.js</li>
+            <li>Lập trình Java cơ bản và đa tuyến</li>
+            <li>Quản lý socket TCP và luồng I/O</li>
+            <li>Dịch vụ kết nối mạng với Java</li>
+            <li>JavaScript với API, WebSocket, JSON</li>
+            <li>Xây dựng server mạng bằng Node.js</li>
           </ul>
           <p>
             Mục tiêu: Giúp bạn hiểu cách các hệ thống kết nối — từ lý thuyết đến thực hành, qua ví dụ sinh động.
@@ -45,22 +45,86 @@
     </div>
   </div>
 
-  <!-- ====== FOOTER ====== -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-row">
-        <p>© 2025 <strong>My Tech Tales</strong> · Designed & coded by Nhi</p>
-        <p><strong>📫 Liên hệ:</strong> <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></p>
-        <p>
-          🌐 Theo dõi: 
-          <a href="https://github.com/nhittt29" target="_blank">GitHub</a> | 
-          <a href="https://linkedin.com/in/nhittt" target="_blank">LinkedIn</a> |
-          <a href="https://facebook.com/nhittt29" target="_blank">Facebook</a> |
-          <a href="https://instagram.com/nhittt29" target="_blank">Instagram</a>
-        </p>
-      </div>
+  <!-- ==== DANH SÁCH BÀI VIẾT ==== -->
+  <section class="blog-preview">
+    <h2>📝 Bài viết mới nhất</h2>
+    <div class="blog-grid">
+      {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
+        <div class="blog-card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="summary">{{ .Summary }}</p>
+          <p class="meta">📅 {{ .Date.Format "02/01/2006" }}</p>
+        </div>
+      {{ end }}
     </div>
-  </footer>
+  </section>
+
+  <!-- ==== GIỚI THIỆU NHANH ==== -->
+  <section class="about-section">
+    <h2>⚙️ Giới thiệu nhanh</h2>
+    <p>
+      Xin chào, mình là <strong>Nhi</strong> – sinh viên nghiên cứu công nghệ và hệ thống kết nối.
+      Blog <em>My Tech Tales</em> là nơi mình ghi lại hành trình học tập và những trải nghiệm lập trình của mình.
+    </p>
+  </section>
+
+  <!-- ==== HÀNH TRÌNH HỌC TẬP ==== -->
+  <section class="timeline">
+    <h2>📈 Hành trình học tập</h2>
+    <ul class="timeline-list">
+      <li>
+        <div class="timeline-content left">
+          <span class="timeline-year">07/09/2025</span>
+          <p>Bắt đầu học lập trình Java và tìm hiểu cơ bản về socket TCP – khởi đầu với nhiều tò mò.</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content right">
+          <span class="timeline-year">15/09/2025</span>
+          <p>Hiểu rõ các luồng (multithreading) trong Java và cách quản lý nhiều kết nối đồng thời.</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content left">
+          <span class="timeline-year">25/09/2025</span>
+          <p>Thực hành xây dựng server TCP đơn giản và thử nghiệm giao tiếp client-server.</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content right">
+          <span class="timeline-year">10/10/2025</span>
+          <p>Nâng cấp server với khả năng xử lý đa tuyến, tối ưu I/O và quản lý kết nối hiệu quả.</p>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-content left">
+          <span class="timeline-year">18/10/2025</span>
+          <p>Hoàn thiện dự án, tổng kết kiến thức và viết bài chia sẻ kinh nghiệm lập trình mạng.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ==== QUOTE TRUYỀN CẢM HỨNG ==== -->
+  <section class="quote">
+    <blockquote>
+      “The best way to predict the future is to invent it.”  
+      <span>— Alan Kay</span>
+    </blockquote>
+  </section>
+
+  <!-- ==== MINI FOOTER ==== -->
+  <div class="mini-footer">
+    <p>© 2025 <strong>My Tech Tales</strong> · Designed & coded by Nhi</p>
+    <p>📫 Liên hệ: <a href="mailto:tuyetnhi290404@gmail.com">tuyetnhi290404@gmail.com</a></p>
+    <p>
+      🌐 Theo dõi: 
+      <a href="https://github.com/nhittt29" target="_blank">GitHub</a> | 
+      <a href="https://linkedin.com/in/nhittt" target="_blank">LinkedIn</a> |
+      <a href="https://facebook.com/nhittt29" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/nhittt29" target="_blank">Instagram</a>
+    </p>
+  </div>
 </div>
 
 <style>
@@ -69,25 +133,29 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-}
-
-/* ==== FULL-WIDTH WRAPPER ==== */
-.homepage-wrapper {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  position: relative;
-  background-color: #0a192f;
+  overflow-x: hidden;
+  background-color: #f5faff;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px);
+  color: #1a1a1a;
 }
 
-/* ==== BACKGROUND FULL ==== */
-.homepage {
+/* ==== WRAPPER ==== */
+.homepage-wrapper {
   flex: 1;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(180deg, #f5faff 0%, #e9f4ff 100%);
+}
+
+/* ==== BACKGROUND ==== */
+.homepage {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   background: url('https://nhittt29.github.io/MyTechTales/images/Data-Analyst-vs.-Data-Scientist.jpg')
               no-repeat center center/cover;
   display: flex;
@@ -100,8 +168,9 @@ html, body {
 .intro-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 25, 47, 0.65);
+  background: rgba(255, 255, 255, 0.55);
   z-index: 1;
+  backdrop-filter: blur(4px);
 }
 
 /* ==== TEXT TRÊN BACKGROUND ==== */
@@ -113,18 +182,12 @@ html, body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 1.5rem;
+  color: rgba(40, 60, 80, 0.4);
+  font-size: 1.4rem;
   font-weight: 700;
-  text-transform: uppercase;
   padding-top: 2rem;
-  letter-spacing: 0.4rem;
+  letter-spacing: 0.35rem;
   pointer-events: none;
-}
-
-.background-text {
-  margin: 0;
-  padding: 0 1rem;
 }
 
 /* ==== PHẦN GIỚI THIỆU ==== */
@@ -136,25 +199,23 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .intro-content {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 3rem;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
   max-width: 1200px;
-  color: #fff;
+  color: #1a1a1a;
 }
 
 .intro-image img {
   width: 380px;
   max-width: 100%;
   border-radius: 16px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   transition: transform 0.4s ease;
 }
 
@@ -170,81 +231,216 @@ html, body {
 .intro-text h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 0.8rem;
+  color: #1b3a57;
   line-height: 1.4;
-  color: #fff;
 }
 
 .intro-text .highlight {
-  color: #4db8ff;
+  color: #008cff;
 }
 
 .intro-text p {
   font-size: 1rem;
-  color: #e0e0e0;
+  color: #2d3b4f;
   line-height: 1.7;
-  margin-bottom: 0.8rem;
-}
-
-.intro-text ul {
-  list-style: none;
-  padding-left: 0;
 }
 
 .intro-text li {
-  margin: 0.2rem 0;
-  font-size: 1rem;
-  color: #d9e9ff;
+  color: #2a4b70;
 }
 
-/* ==== FOOTER ==== */
-.site-footer {
-  background: #0a192f;
-  color: #d9e9ff;
+/* ==== BLOG PREVIEW ==== */
+.blog-preview {
+  background: linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
+  padding: 4rem 8%;
   text-align: center;
-  padding: 2rem 1.5rem;
-  font-size: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  bottom: 0;
+  color: #1a1a1a;
 }
 
-.footer-content {
-  max-width: 1100px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.blog-preview h2 {
+  font-size: 1.9rem;
+  color: #0078d7;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 8px rgba(0, 120, 215, 0.2);
 }
 
-.footer-row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  width: 100%;
+.blog-card {
+  background: #ffffff;
+  padding: 1.6rem;
+  border-radius: 18px;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.8rem;
 }
 
-.footer-row p {
-  margin: 0;
-  flex: 1;
-  text-align: center;
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 120, 215, 0.15);
 }
 
-.site-footer a {
-  color: #4db8ff;
+.blog-card h3 a {
+  color: #0059b3;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.site-footer a:hover {
+.blog-card h3 a:hover {
+  color: #007fff;
+}
+
+.blog-card .summary {
+  font-size: 0.95rem;
+  color: #3a4a60;
+}
+
+.blog-card .meta {
+  font-size: 0.85rem;
+  color: #707d91;
+}
+
+/* ==== ABOUT SECTION ==== */
+.about-section {
+  background: #f0f7ff;
+  padding: 3rem 10%;
+  color: #1a1a1a;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-section h2 {
+  color: #0078d7;
+  margin-bottom: 1rem;
+}
+
+/* ==== TIMELINE ZIGZAG ==== */
+.timeline {
+  background: #f9fcff;
+  padding: 3rem 10%;
+  color: #1a1a1a;
+}
+
+.timeline h2 {
+  color: #0078d7;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.timeline-list {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #0078d7;
+  border-radius: 2px;
+}
+
+.timeline-list li {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.timeline-list li:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-list li:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-list li:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: -12px;
+  width: 20px;
+  height: 20px;
+  background: #0078d7;
+  border-radius: 50%;
+  border: 4px solid #fff;
+}
+
+.timeline-list li:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  background: #0078d7;
+  border-radius: 50%;
+  border: 4px solid #fff;
+}
+
+.timeline-year {
+  font-weight: 700;
+  color: #0078d7;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* ==== QUOTE ==== */
+.quote {
+  background: #eaf4ff;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  font-style: italic;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.quote blockquote {
+  font-size: 1.2rem;
+  color: #003d66;
+}
+
+.quote span {
+  display: block;
+  margin-top: 0.5rem;
+  color: #0078d7;
+  font-weight: 600;
+}
+
+/* ==== MINI FOOTER ==== */
+.mini-footer {
+  margin-top: auto;
+  background: #e3f1ff;
+  color: #003d66;
+  text-align: center;
+  padding: 2.2rem 1rem;
+  font-size: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mini-footer a {
+  color: #0059b3;
+  text-decoration: none;
+}
+
+.mini-footer a:hover {
   text-decoration: underline;
-  color: #82cfff;
+  color: #007fff;
 }
 
 /* ==== ANIMATION ==== */
@@ -252,36 +448,6 @@ html, body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 900px) {
-  .footer-row {
-    flex-direction: column;
-    gap: 0.6rem;
-    white-space: normal;
-  }
-}
-
-@media (max-width: 768px) {
-  .intro-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .intro-text h1 {
-    font-size: 1.6rem;
-  }
-
-  .background-content {
-    font-size: 1rem;
-    padding-top: 1rem;
-    letter-spacing: 0.25rem;
-  }
-
-  .intro-image img {
-    width: 300px;
-  }
-}
 </style>
+
 {{ end }}
